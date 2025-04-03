@@ -1,9 +1,9 @@
 :host {
     --card-radius: 1em;
     --card-width: 500px;
-    --card-height: 450px;
+    --card-height: 420px;
     --card-background-color: #eee;
-    
+
     --image-margin: 5px;
 }
 
@@ -19,7 +19,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         & .card-img {
             width: calc(var(--card-width) - (calc(var(--image-margin) * 2) + 5px));
             /* border-radius: calc(var(--card-radius)); */
@@ -27,5 +27,41 @@
             border-radius: 5px;
         }
     }
-}
 
+    & .footer {
+        margin-inline: 1em;
+
+        & .card-title {
+            font-weight: 700;
+            font-size: large;
+        }
+
+        & .card-extra-info {
+            display: grid;
+            margin-top: 5px;
+            grid-template-columns: 60% 40%;
+            height: 100%;
+
+            & .extra-info-container {
+                font-size: large;
+            }
+
+            & .extra-button-container {
+                justify-self: end;
+                margin-right: 3rem;
+
+                & .rounded-button {
+                    border: 2px solid black;
+                    background-color: black;
+                    font-size: x-large;
+                    color: #eee;
+                    border-radius: 100%;
+                    height: 100%;
+                    aspect-ratio: 1 / 1;
+                    display: grid;
+                    place-items: center;
+                }
+            }
+        }
+    }
+}
