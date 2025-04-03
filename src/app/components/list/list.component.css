@@ -1,0 +1,7 @@
+.components-section {
+    margin-inline: 4rem;
+
+    & .components-list {
+        margin-top: 1rem;
+    }
+}

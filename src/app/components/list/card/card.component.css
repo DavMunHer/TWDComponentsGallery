@@ -1,0 +1,31 @@
+:host {
+    --card-radius: 1em;
+    --card-width: 500px;
+    --card-height: 450px;
+    --card-background-color: #eee;
+    
+    --image-margin: 5px;
+}
+
+
+.card-container {
+    width: var(--card-width);
+    height: var(--card-height);
+    border: 2px solid black;
+    border-radius: var(--card-radius);
+    background-color: var(--card-background-color);
+
+    & .image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        & .card-img {
+            width: calc(var(--card-width) - (calc(var(--image-margin) * 2) + 5px));
+            /* border-radius: calc(var(--card-radius)); */
+            margin: var(--image-margin);
+            border-radius: 5px;
+        }
+    }
+}
+
