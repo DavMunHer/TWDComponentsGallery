@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { LandingHeaderComponent } from './components/landing-header/landing-header.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 export const routes: Routes = [
-  { path: '**', component: LandingHeaderComponent }
+  { path: '**', component: LandingComponent }
 ];
