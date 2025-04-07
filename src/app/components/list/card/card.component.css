@@ -46,20 +46,24 @@
                 font-size: large;
             }
 
-            & .extra-button-container {
-                justify-self: end;
-                margin-right: 3rem;
+            & .extra-buttons-container {
+                display: flex;
+                justify-content: space-around;
 
-                & .rounded-button {
-                    border: 2px solid black;
-                    background-color: black;
-                    font-size: x-large;
-                    color: #eee;
+                & .svg-container {
+                    border: 2px solid #000;
+                    background-color: #000;
                     border-radius: 100%;
-                    height: 100%;
+                    display: flex;
+                    max-height: 54px;
                     aspect-ratio: 1 / 1;
-                    display: grid;
-                    place-items: center;
+                    padding: 2px;
+                    align-items: center;
+                    justify-content: center;
+
+                    & svg {
+                        max-height: 100%;
+                    }
                 }
             }
         }
