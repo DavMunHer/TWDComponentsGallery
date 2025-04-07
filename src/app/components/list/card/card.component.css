@@ -1,9 +1,9 @@
 :host {
     --card-radius: 1em;
     --card-width: 500px;
-    --card-height: 450px;
+    --card-height: 420px;
     --card-background-color: #eee;
-    
+
     --image-margin: 5px;
 }
 
@@ -19,7 +19,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        
+        aspect-ratio: 8/5;
+
         & .card-img {
             width: calc(var(--card-width) - (calc(var(--image-margin) * 2) + 5px));
             /* border-radius: calc(var(--card-radius)); */
@@ -27,5 +28,45 @@
             border-radius: 5px;
         }
     }
-}
 
+    & .footer {
+        margin-inline: 1em;
+
+        & .card-title {
+            font-weight: 700;
+            font-size: larger;
+        }
+
+        & .card-extra-info {
+            display: grid;
+            margin-top: 5px;
+            grid-template-columns: 60% 40%;
+            height: 100%;
+
+            & .extra-info-container {
+                font-size: large;
+            }
+
+            & .extra-buttons-container {
+                display: flex;
+                justify-content: space-around;
+
+                & .svg-container {
+                    border: 2px solid #000;
+                    background-color: #000;
+                    border-radius: 100%;
+                    display: flex;
+                    max-height: 54px;
+                    aspect-ratio: 1 / 1;
+                    padding: 2px;
+                    align-items: center;
+                    justify-content: center;
+
+                    & svg {
+                        max-height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
