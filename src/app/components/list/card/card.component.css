@@ -5,7 +5,18 @@
     --card-background-color: #eee;
 
     --image-margin: 5px;
+
+    @media (width <= 48rem) {
+        --card-width: 500px;
+        --card-height: 420px;
+    }
+
+    @media (width <= 40rem) {
+        --card-width: 350px;
+        --card-height: 350px;
+    }
 }
+
 
 
 .card-container {
@@ -23,8 +34,7 @@
         & .card-img {
             aspect-ratio: 8/5;
             width: calc(var(--card-width) - (calc(var(--image-margin) * 2) + 5px));
-            /* border-radius: calc(var(--card-radius)); */
-            margin: var(--image-margin);
+            margin: var(--image-margin);    
             border-radius: 5px;
         }
     }
