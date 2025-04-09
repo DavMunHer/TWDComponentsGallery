@@ -2,8 +2,7 @@
     <h3>TWD Components</h3>
     <section class="components-list">
         @for (component of components; track $index) {
-            <app-card />
-            
+            <app-card [cardInfo]="component"/>
         }
     </section>
 </section>
