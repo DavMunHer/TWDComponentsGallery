@@ -20,5 +20,4 @@ export class ListComponent {
             gitHubUrl: 'https://github.com/TriWebDev/authLib-workspace',
         }
     ];
-    
 }
