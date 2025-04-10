@@ -11,11 +11,13 @@ import { Card } from '../../interfaces/card';
 export class ListComponent {
     protected components: Card[] = [
         {
-            imageUrl: '',
-            downloads: 129,
-            version: '1.0.5',
-            lastCommit: 2,
-            packageSize: 150
+            imageUrl: 'auth.jpg',
+            imageAlt: 'Auth component demo image',
+            title: 'Auth',
+            releasedDate: '2025-03-28',
+            packageName:  '@triwebdev/auth-component',
+            npmPackageUrl: 'https://www.npmjs.com/package/@triwebdev/auth-component',
+            gitHubUrl: 'https://github.com/TriWebDev/authLib-workspace',
         }
     ];
     
