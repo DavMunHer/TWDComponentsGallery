@@ -1,7 +1,9 @@
+
 import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { Card } from '../../../interfaces/card';
 import { CardService } from '../../../services/card.service';
 import { DynamicCard, PartialDynamicCard } from '../../../interfaces/dynamic-card';
+
 
 @Component({
   selector: 'app-card',
@@ -9,6 +11,7 @@ import { DynamicCard, PartialDynamicCard } from '../../../interfaces/dynamic-car
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
+
 export class CardComponent implements OnInit {
   public cardInfo = input.required<Card>();
   protected dynamicCardInfo = signal<DynamicCard>({
@@ -17,6 +20,7 @@ export class CardComponent implements OnInit {
     version: '',
     sizeInKb: 0
   });
+
 
   private cardService = inject(CardService);
 

@@ -12,6 +12,7 @@ body {
     line-height: 1.5;
     background-color: #fff;
     color: #000;
+    scroll-behavior: smooth;
 }
 
 input,
