@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CardComponent } from './card/card.component';
-import { Card } from '../../interfaces/card';
+import { Card } from '../../../interfaces/card';
 
 @Component({
     selector: 'app-list',
@@ -22,5 +22,5 @@ export class ListComponent {
             gitHubUrl: 'https://github.com/TriWebDev/authLib-workspace',
         }
     ];
-    
+
 }
