@@ -2,10 +2,8 @@ export interface Card {
     imageUrl: string,
     imageAlt: string,
     title: string,
-    lastCommit: number,
-    downloads: number,
-    version: string,
-    packageSize: number,
+    releasedDate: string,
+    packageName: string,
     npmPackageUrl: string,
     gitHubUrl: string
 }
