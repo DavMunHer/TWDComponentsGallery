@@ -2,13 +2,16 @@
     --sidebar-x-padding: 3em;
     --sidebar-separator-color: #ccc 
 }
-
-.sidebar-container {
-    padding-inline: var(--sidebar-x-padding);
-    width: fit-content;
-    display: grid;
-    grid-template-columns: 100%;
-    row-gap: 10px;
-    margin-top: 2em;
+.sidebar-styles {
     border-right: 5px solid var(--sidebar-separator-color);
+    height: 100%;
+    padding-top: 2em;
+    
+    & .sidebar-container {
+        padding-inline: var(--sidebar-x-padding);
+        width: fit-content;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+    }
 }
