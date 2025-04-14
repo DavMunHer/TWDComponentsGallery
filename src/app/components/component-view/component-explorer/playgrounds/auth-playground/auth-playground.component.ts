@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-auth-playground',
+  selector: 'auth-playground',
   imports: [],
   templateUrl: './auth-playground.component.html',
   styleUrl: './auth-playground.component.css'

@@ -1,10 +1,12 @@
 <!-- The parent component will have to implement an aside tag including this component -->
-<div class="sidebar-container">
-    @for (componentInfo of componentsInfo; track $index) {
-        <a [routerLink]="['/components', componentInfo.redirectUrl, 'playground']">
-            <div>
-                <span>{{componentInfo.name | capitalize}} Component</span>
-            </div>
-        </a>
-    }
-</div>
+<aside class="sidebar-styles">
+    <div class="sidebar-container">
+        @for (componentInfo of componentsInfo; track $index) {
+            <a class="component-container" [routerLink]="['/components', componentInfo.redirectUrl, 'playground']">
+                <div>
+                    <span>{{componentInfo.name | capitalize}} Component</span>
+                </div>
+            </a>
+        }
+    </div>
+</aside>
