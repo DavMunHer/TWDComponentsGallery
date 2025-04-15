@@ -8,7 +8,7 @@
             <section class="component-explorer">
                 <component-explorer />
             </section>
-            @if (showedInfo == 'docs') {
+            @if (showedInfo() == 'docs') {
                 <section class="docs">
                     @if (componentName == 'auth') {
                         <auth-docs />
