@@ -1,3 +1,23 @@
-<div>
-    In this div there should be the selector between the playground and the docs of the component, starting with the playground 
-</div>
+<nav class="explorer-container">
+    <section class="explorer-options">
+        <a class="explorer-option" [routerLink]="['/components', componentName, 'playground']" [ngClass]="{'active': isPlaygroundActive()}">
+            <span>
+                PLAYGROUND
+            </span>
+        </a>
+        <a class="explorer-option" [routerLink]="['/components', componentName, 'docs']" [ngClass]="{'active': !isPlaygroundActive()}">
+            <span>
+                DOCUMENTATION
+            </span>
+        </a>
+    </section>
+    <section class="component-references">
+        <a class="component-reference">
+            <span>GitHub</span>
+        </a>
+        <a class="component-reference">
+            <span>NPM</span>            
+        </a>
+    </section>
+
+</nav>
