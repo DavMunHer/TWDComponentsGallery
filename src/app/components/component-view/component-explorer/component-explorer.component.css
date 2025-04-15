@@ -1,0 +1,46 @@
+:host {
+    --padding-x: 1em; 
+}
+
+.explorer-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin-inline: 2rem;
+    border-bottom: 1px solid #ccc;
+
+    & .explorer-options {
+        display: flex;
+        
+        & .explorer-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 10rem;
+            text-align: center;
+            padding-inline: var(--padding-x);
+            padding-block: 10px;
+
+            &:hover {
+                background-color: #eee;
+            }
+        }
+
+        & .active {
+            border-bottom: 2px solid #06e;
+            padding-bottom: 8px;
+        }
+    }
+
+    & .component-references {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        margin-right: 2rem;
+        gap: 2rem;
+
+        & .component-reference { 
+            text-align: center;
+            padding-inline: var(--padding-x);
+        }
+    }
+}
