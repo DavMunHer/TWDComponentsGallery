@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ComponentsInfoService } from '../../../services/components-info.service';
 import { CapitalizePipe } from '../../../pipes/capitalize.pipe';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ComponentInfo } from '../../../interfaces/component-info';
 
 @Component({
@@ -13,8 +13,14 @@ import { ComponentInfo } from '../../../interfaces/component-info';
 export class SidebarComponent implements OnInit {
   protected componentsInfo: Array<ComponentInfo> = [];
   private componentsService = inject(ComponentsInfoService);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.componentsInfo = this.componentsService.getComponentInfo();
+    
+    this.router.events.subscribe(() => {
+      // Component url name in the info of each component
+      
+    });
   }
 }
