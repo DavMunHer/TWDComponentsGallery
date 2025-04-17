@@ -1,11 +1,11 @@
-export interface DynamicCard {
+export interface DynamicCardInfo {
     daysDiff: number
     downloads: number
     version: string
     sizeInKb: number
 }
 
-export interface PartialDynamicCard {
+export interface PartialDynamicCardInfo {
     daysDiff: number
     version: string
     sizeInKb: number

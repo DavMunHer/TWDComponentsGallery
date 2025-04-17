@@ -1,8 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ComponentsInfoService } from '../../../services/components-info.service';
 import { CapitalizePipe } from '../../../pipes/capitalize.pipe';
-import { Router, RouterLink } from '@angular/router';
-import { ComponentInfo } from '../../../interfaces/component-info';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ComponentMinInfo } from '../../../interfaces/component-min-info';
 
 @Component({
   selector: 'components-sidebar',
@@ -11,16 +11,23 @@ import { ComponentInfo } from '../../../interfaces/component-info';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent implements OnInit {
-  protected componentsInfo: Array<ComponentInfo> = [];
+  protected componentsInfo: ComponentMinInfo[] = [];
   private componentsService = inject(ComponentsInfoService);
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  protected selectedComponentNameInUrl = signal<string>(this.route.snapshot.params['name']);
 
   ngOnInit(): void {
-    this.componentsInfo = this.componentsService.getComponentInfo();
+    this.componentsInfo = this.componentsService.getComponentsMinInfo();
     
     this.router.events.subscribe(() => {
       // Component url name in the info of each component
-      
+      this.updateSelectedComponent();
     });
   }
+
+  private updateSelectedComponent() {
+    this.selectedComponentNameInUrl.set(this.route.snapshot.params['name']);
+  }
+
 }

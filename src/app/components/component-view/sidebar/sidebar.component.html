@@ -2,7 +2,7 @@
 <aside class="sidebar-styles">
     <div class="sidebar-container">
         @for (componentInfo of componentsInfo; track $index) {
-            <a class="component-container" [routerLink]="['/components', componentInfo.redirectUrl, 'playground']">
+            <a class="component-container" [routerLink]="['/components', componentInfo.componentNameInUrl , 'playground']">
                 <div>
                     <span>{{componentInfo.name | capitalize}} Component</span>
                 </div>

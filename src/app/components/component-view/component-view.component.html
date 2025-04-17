@@ -1,5 +1,5 @@
 <header class="header">
-    <h1>{{componentName | capitalize}} Component</h1>
+    <h1>{{componentName() | capitalize}} Component</h1>
 </header>
 <main>
     <section class="main-header">
@@ -10,13 +10,13 @@
             </section>
             @if (showedInfo() == 'docs') {
                 <section class="docs">
-                    @if (componentName == 'auth') {
+                    @if (componentName() == 'auth') {
                         <auth-docs />
                     }
                 </section>
             } @else {
                 <section class="playground">
-                    @if (componentName == 'auth') {
+                    @if (componentName() == 'auth') {
                         <auth-playground />
                     }
                 </section>

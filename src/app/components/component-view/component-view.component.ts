@@ -5,7 +5,7 @@ import { CapitalizePipe } from '../../pipes/capitalize.pipe';
 import { ComponentExplorerComponent } from './component-explorer/component-explorer.component';
 import { AuthDocsComponent } from './component-explorer/docs/auth-docs/auth-docs.component';
 import { AuthPlaygroundComponent } from './component-explorer/playgrounds/auth-playground/auth-playground.component';
-import { filter, Subscription } from 'rxjs';
+import { ComponentsInfoService } from '../../services/components-info.service';
 
 @Component({
   selector: 'app-component-view',
@@ -16,10 +16,13 @@ import { filter, Subscription } from 'rxjs';
 export class ComponentViewComponent implements OnInit{
   private route = inject(ActivatedRoute);
   private router = inject(Router);
-  protected componentName = this.route.snapshot.params['name'];
+  private componentsInfoService = inject(ComponentsInfoService);
+  protected componentName = signal<string>('');
   protected showedInfo = signal<'docs' | 'playground'>(this.route.snapshot.params['showedInfo']);
+
   
   ngOnInit(): void {
+    this.updateComponentName();
     this.router.events.subscribe(() => {
       this.onRouteChange();
     });
@@ -27,7 +30,14 @@ export class ComponentViewComponent implements OnInit{
 
   private onRouteChange(): void {
     this.showedInfo.set(this.route.snapshot.params['showedInfo']);
+    this.updateComponentName();
   }
 
-  
+  private updateComponentName() {
+    const componentNameInUrl = this.route.snapshot.params['name'];
+    const currentComponent = this.componentsInfoService.getComponentMinInfo(componentNameInUrl);
+    if (currentComponent) {
+      this.componentName.set(currentComponent.name);
+    }
+  }
 }

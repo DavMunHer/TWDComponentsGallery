@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'component-explorer',
@@ -9,13 +9,23 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   styleUrl: './component-explorer.component.css'
 })
   
-export class ComponentExplorerComponent {
+export class ComponentExplorerComponent implements OnInit {
   private route = inject(ActivatedRoute);
-  protected componentName = this.route.snapshot.params['name'];
-
+  private router = inject(Router);
+  protected componentName = signal<string>(this.route.snapshot.params['name']);
+  
   protected isPlaygroundActive() {
     return this.route.snapshot.params['showedInfo'] == 'playground'
   }
+  
+  ngOnInit(): void {
+    this.router.events.subscribe(() => {
+      this.updateComponentName();
+    })
+  }
 
+  private updateComponentName() {
+    this.componentName.set(this.route.snapshot.params['name']);
+  }
 
 }

@@ -1,20 +1,21 @@
 
 import { Component, inject, input, OnInit, signal } from '@angular/core';
-import { Card } from '../../../interfaces/card';
 import { CardService } from '../../../services/card.service';
-import { DynamicCard, PartialDynamicCard } from '../../../interfaces/dynamic-card';
+import { DynamicCardInfo, PartialDynamicCardInfo } from '../../../interfaces/dynamic-card';
+import { ComponentInfo } from '../../../interfaces/component-info';
+import { CapitalizePipe } from '../../../pipes/capitalize.pipe';
 
 
 @Component({
   selector: 'app-card',
-  imports: [],
+  imports: [CapitalizePipe],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
 
 export class CardComponent implements OnInit {
-  public cardInfo = input.required<Card>();
-  protected dynamicCardInfo = signal<DynamicCard>({
+  public cardInfo = input.required<ComponentInfo>();
+  protected dynamicCardInfo = signal<DynamicCardInfo>({
     daysDiff: 0,
     downloads: 0,
     version: '',
@@ -25,7 +26,7 @@ export class CardComponent implements OnInit {
   private cardService = inject(CardService);
 
   ngOnInit(): void {
-    this.cardService.getExtraInfo(this.cardInfo().packageName).subscribe((data: PartialDynamicCard) => {
+    this.cardService.getExtraInfo(this.cardInfo().packageName).subscribe((data: PartialDynamicCardInfo) => {
       this.dynamicCardInfo.set({ ...this.dynamicCardInfo(), ...data });
     });
 
