@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CardComponent } from './card/card.component';
-import { Card } from '../../interfaces/card';
+import { ComponentInfo } from '../../interfaces/component-info';
+import { ComponentsInfoService } from '../../services/components-info.service';
 
 @Component({
     selector: 'app-list',
@@ -8,16 +9,11 @@ import { Card } from '../../interfaces/card';
     templateUrl: './list.component.html',
     styleUrl: './list.component.css',
 })
-export class ListComponent {
-    protected components: Card[] = [
-        {
-            imageUrl: 'auth.jpg',
-            imageAlt: 'Auth component demo image',
-            title: 'Auth',
-            releasedDate: '2025-03-28',
-            packageName:  '@triwebdev/auth-component',
-            npmPackageUrl: 'https://www.npmjs.com/package/@triwebdev/auth-component',
-            gitHubUrl: 'https://github.com/TriWebDev/authLib-workspace',
-        }
-    ];
+export class ListComponent implements OnInit {
+    protected components: ComponentInfo[] = [];
+    private componentsInfoService = inject(ComponentsInfoService);
+
+    ngOnInit(): void {
+        this.components = this.componentsInfoService.getComponentsInfo();
+    }
 }

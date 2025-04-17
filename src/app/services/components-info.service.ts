@@ -1,34 +1,58 @@
 import { Injectable } from '@angular/core';
 import { ComponentInfo } from '../interfaces/component-info';
+import { ComponentMinInfo } from '../interfaces/component-min-info';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ComponentsInfoService {
-  // This must be refactored in the future for having all the info, including the info used in the card-list component
   private componentsInfo: Array<ComponentInfo> = [
     {
-      name: 'Auth',
-      redirectUrl: 'auth'
+      name: 'auth',
+      componentNameInUrl: 'auth',
+      imageUrl: 'auth.jpg',
+      imageAlt: 'Auth component demo image',
+      releasedDate: '2025-03-28',
+      packageName: '@triwebdev/auth-component',
+      npmPackageUrl: 'https://www.npmjs.com/package/@triwebdev/auth-component',
+      gitHubUrl: 'https://github.com/TriWebDev/authLib-workspace',
     },
     {
       name: 'ticket',
-      redirectUrl: 'ticket'
+      componentNameInUrl: 'ticket',
+      imageUrl: 'auth.jpg',
+      imageAlt: 'Ticket component demo image',
+      releasedDate: '2025-03-28',
+      packageName: '@triwebdev/auth-component',
+      npmPackageUrl: 'https://www.npmjs.com/package/@triwebdev/auth-component',
+      gitHubUrl: 'https://github.com/TriWebDev/authLib-workspace',
     },
-    {
-      name: 'Whatever',
-      redirectUrl: 'whatever'
-    },
-    {
-      name: 'Something',
-      redirectUrl: 'something'
-    }
+    // {
+    //   name: 'Whatever',
+    //   componentNameInUrl: 'whatever',
+    // },
+    // {
+    //   name: 'Something',
+    //   componentNameInUrl: 'something',
+    // },
   ];
 
-  constructor() { }
+  constructor() {}
 
-  public getComponentInfo() {
+  public getComponentsInfo() {
     return this.componentsInfo;
   }
+
+  public getComponentsMinInfo(): ComponentMinInfo[] {
+    return this.componentsInfo.map(({ name, componentNameInUrl }) => ({ name, componentNameInUrl }));
+  }
+
+  public getComponentMinInfo(componentNameInUrl: string): ComponentMinInfo | undefined {
+    const componentsMinInfo = this.getComponentsMinInfo();
+
+    return componentsMinInfo.find((component) => {
+      return component.componentNameInUrl === componentNameInUrl;
+    });
+  } 
 
 }

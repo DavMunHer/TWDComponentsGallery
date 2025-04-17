@@ -3,7 +3,7 @@
         <img class="card-img" [src]="cardInfo().imageUrl" [alt]="cardInfo().imageAlt">
     </div>
     <footer class="footer">
-        <span class="card-title">{{cardInfo().title}}</span>
+        <span class="card-title">{{cardInfo().name | capitalize}}</span>
         <div class="card-extra-info">
             <div class="extra-info-container">
                 <p>{{dynamicCardInfo().daysDiff}} days ago · {{dynamicCardInfo().downloads}} downloads</p>
