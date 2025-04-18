@@ -3,10 +3,11 @@ import { ComponentsInfoService } from '../../../services/components-info.service
 import { CapitalizePipe } from '../../../pipes/capitalize.pipe';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ComponentMinInfo } from '../../../interfaces/component-min-info';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'components-sidebar',
-  imports: [CapitalizePipe, RouterLink],
+  imports: [CapitalizePipe, RouterLink, NgClass],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
