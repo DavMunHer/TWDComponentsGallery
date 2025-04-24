@@ -1,0 +1,15 @@
+:host {
+    /*  Declare variables */
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 1rem;
+}
+
+.main-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
