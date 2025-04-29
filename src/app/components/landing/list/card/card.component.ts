@@ -4,11 +4,12 @@ import { CapitalizePipe } from '../../../../pipes/capitalize.pipe';
 import { ComponentInfo } from '../../../../interfaces/component-info';
 import { DynamicCardInfo, PartialDynamicCardInfo } from '../../../../interfaces/dynamic-card';
 import { CardService } from '../../../../services/card.service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-card',
-  imports: [CapitalizePipe],
+  imports: [CapitalizePipe, RouterLink],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
