@@ -1,5 +1,5 @@
 :host {
-    /*  Declare variables */
+    --main-margin-x: 1rem;
 }
 
 .header {
@@ -9,7 +9,16 @@
     margin-block: 1rem;
 }
 
-.main-header {
+.main {
     display: grid;
     grid-template-columns: auto 1fr;
+    
+    & .right-content .playground {
+        margin-inline: var(--main-margin-x);
+    }
+
+    & .right-content .docs {
+        margin-inline: var(--main-margin-x);
+    }
 }
+

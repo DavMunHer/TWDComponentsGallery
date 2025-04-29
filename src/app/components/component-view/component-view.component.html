@@ -2,22 +2,26 @@
     <h1>{{componentName() | capitalize}} Component</h1>
 </header>
 <main>
-    <section class="main-header">
+    <section class="main">
         <components-sidebar/>
-        <div>
+        <div class="right-content">
             <section class="component-explorer">
                 <component-explorer />
             </section>
             @if (showedInfo() == 'docs') {
                 <section class="docs">
-                    @if (componentName() == 'auth') {
-                        <auth-docs />
+                    @switch (componentName()) {
+                        @case ('auth') {
+                            <auth-docs />
+                        }
                     }
                 </section>
             } @else {
                 <section class="playground">
-                    @if (componentName() == 'auth') {
-                        <auth-playground />
+                    @switch (componentName()) {
+                        @case ('auth') {
+                            <auth-playground />
+                        }
                     }
                 </section>
             }
