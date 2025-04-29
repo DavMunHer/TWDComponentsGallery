@@ -3,8 +3,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { CapitalizePipe } from '../../pipes/capitalize.pipe';
 import { ComponentExplorerComponent } from './component-explorer/component-explorer.component';
-import { AuthDocsComponent } from './component-explorer/docs/auth-docs/auth-docs.component';
-import { AuthPlaygroundComponent } from './component-explorer/playgrounds/auth-playground/auth-playground.component';
+import { AuthDocsComponent } from './docs/auth-docs/auth-docs.component';
+import { AuthPlaygroundComponent } from './playgrounds/auth-playground/auth-playground.component';
 import { ComponentsInfoService } from '../../services/components-info.service';
 
 @Component({
