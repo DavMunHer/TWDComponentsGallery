@@ -6,6 +6,8 @@
 
     --image-margin: 5px;
 
+    --hover-links-color: #195EB3;
+
     @media (width <= 48rem) {
         --card-width: 500px;
         --card-height: 420px;
@@ -22,9 +24,14 @@
 .card-container {
     width: var(--card-width);
     height: var(--card-height);
-    border: 2px solid black;
+    border: 2px solid #8A8D91;
     border-radius: var(--card-radius);
-    background-color: var(--card-background-color);
+    background-color: color-mix(in srgb, var(--card-background-color) 70%, white 30%) ;
+
+    &:hover {
+        transition: all 0.6s;
+        transform: scale(104%);
+    }
 
     & .image-container {
         display: flex;
@@ -71,6 +78,12 @@
                     padding: 2px;
                     align-items: center;
                     justify-content: center;
+
+                    &:hover {
+                        background-color: var(--hover-links-color);
+                        border-color: var(--hover-links-color);
+                        transition: all 0.4s ease;
+                    }
 
                     & svg {
                         max-height: 100%;
