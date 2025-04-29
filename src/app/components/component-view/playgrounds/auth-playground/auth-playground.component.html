@@ -1,1 +1,21 @@
-<p>auth-playground works!</p>
+<h1>Playground</h1>
+<section class="container">
+    <article>
+        <p>Welcome to the playground component. Here, you can change the customizable properties of the component by
+            interacting with the inputs in the right </p>
+    </article>
+    <section>
+        <div>
+            <label for="">Template: </label>
+            <select name="" id="">
+                <option value="classicB&W">Classic B&W</option>
+                <option value="neoViolet">NeoViolet</option>
+                <option value="custom">Custom</option>
+            </select>
+        </div>
+    </section>
+</section>
+
+<div class="centered-container">
+    <app-auth [theme]="'classicB&W'"></app-auth>
+</div>
