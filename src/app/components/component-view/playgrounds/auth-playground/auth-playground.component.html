@@ -1,10 +1,10 @@
 <h1>Playground</h1>
 <section class="container">
-    <article>
+<article class="introduction">
         <p>Welcome to the playground component. Here, you can change the customizable properties of the component by
-            interacting with the inputs in the right </p>
+            interacting with the inputs below </p>
     </article>
-    <section>
+    <section class="parameters">
         <div>
             <label for="">Template: </label>
             <select name="" id="">
@@ -13,9 +13,18 @@
                 <option value="custom">Custom</option>
             </select>
         </div>
+        <hr>
+        <div class="color-inputs">
+          <label for="">Primary color: </label>
+          <input type="text" value="#" maxlength="7">
+          <label for="">Secondary color: </label>
+          <input type="text" value="#" maxlength="7">
+          <label for="">Input color: </label>
+          <input type="text" value="#" maxlength="7">
+        </div>
     </section>
+    <div class="main-component">
+        <app-auth [theme]="'classicB&W'"></app-auth>
+    </div>
 </section>
 
-<div class="centered-container">
-    <app-auth [theme]="'classicB&W'"></app-auth>
-</div>

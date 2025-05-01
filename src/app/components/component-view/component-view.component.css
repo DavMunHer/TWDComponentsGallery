@@ -12,9 +12,10 @@
 .main {
     display: grid;
     grid-template-columns: auto 1fr;
-    
+
     & .right-content .playground {
         margin-inline: var(--main-margin-x);
+        margin-top: 0.5em;
     }
 
     & .right-content .docs {
