@@ -1,0 +1,20 @@
+:host {
+    /* Define required variables */
+}
+
+.main-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & section {
+        width: 80%;
+
+        & article .article-title {
+            text-align: center;
+        }
+    }
+}
+
+

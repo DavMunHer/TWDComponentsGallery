@@ -1,0 +1,15 @@
+.code-container {
+    position: relative;
+
+    & .code-block {
+        background-color: #eee;
+        padding: 1em;
+        z-index: 10;
+    }
+
+    & .copy-button {
+        position: absolute;
+        top: .2rem;
+        right: .2rem;
+    }
+}
