@@ -36,21 +36,20 @@
   }
 
   input {
-    padding: 4px 8px; /* menos espacio interno */
-    border: 1.5px solid #dbeafe; /* borde más fino */
-    border-radius: 4px;
+    border: 0.1rem solid #dbeafe;
+    border-radius: 0.25rem;
     background-color: #f0f9ff;
     color: #1e3a8a;
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
-    font-size: 14px; /* texto un poquito más pequeño */
-    width: auto; /* no se estira de más */
-    max-width: 200px; /* limita el ancho máximo */
+    font-size: 1rem;
+    width: auto;
+    max-width: 12rem;
   }
 
   input:focus {
     border-color: #3b82f6;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 0 0 0.125rem rgba(59, 130, 246, 0.25);
   }
 
 }
