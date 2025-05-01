@@ -7,9 +7,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: large;
 
     & section {
-        width: 80%;
+        width: 60%;
 
         & article .article-title {
             text-align: center;
@@ -17,4 +18,7 @@
     }
 }
 
+.line {
+    display: block;
+}
 

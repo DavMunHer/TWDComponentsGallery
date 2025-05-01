@@ -1,7 +1,8 @@
 .code-container {
     position: relative;
-
+    
     & .code-block {
+        overflow: scroll;
         background-color: #eee;
         padding: 1em;
         z-index: 10;
@@ -9,7 +10,11 @@
 
     & .copy-button {
         position: absolute;
-        top: .2rem;
-        right: .2rem;
+        top: .3rem;
+        right: .3rem;
+
+        &.disabled {
+            cursor: default;
+        }
     }
 }
