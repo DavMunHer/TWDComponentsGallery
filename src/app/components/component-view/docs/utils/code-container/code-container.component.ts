@@ -10,7 +10,23 @@ import { Component, signal } from '@angular/core';
 export class CodeContainerComponent {
   protected copied = signal<boolean>(false);
 
-  copyContent() {
+  constructor() {
+    // setInterval(() => console.log(this.copied), 1500);
+  }
+
+
+  copyContent(event: any) {
+    const codeContainer: HTMLElement = event.target.closest('.code-container');
+    let text = '';
+    const childContainers = codeContainer.children[0].children[0].children;
+
+    for (let i = 0; i < childContainers.length; i++) {
+      const childElement = childContainers[i];
+      text += childElement.textContent + '\n';
+    }
+
+    console.log(text);
+    navigator.clipboard.writeText(text!);
       // TODO: Logic for copying text to clipboard
       this.copied.set(true);
       setTimeout(() => {
