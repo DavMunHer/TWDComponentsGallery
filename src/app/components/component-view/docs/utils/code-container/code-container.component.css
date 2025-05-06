@@ -6,6 +6,7 @@
         background-color: #eee;
         padding: 1em;
         z-index: 10;
+        margin-block: 1em;
     }
 
     & .copy-button {
@@ -15,6 +16,15 @@
 
         &.disabled {
             cursor: default;
+        }
+
+        & .svg-icon {
+            width: 25px;
+
+            & .coloured:hover {
+                width: 100%;
+                fill: #444;
+            }
         }
     }
 }
