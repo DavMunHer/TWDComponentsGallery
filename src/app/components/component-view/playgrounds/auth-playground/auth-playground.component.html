@@ -1,29 +1,34 @@
 <h1>Playground</h1>
 <section class="container">
-<article class="introduction">
-        <p>Welcome to the Playground Component. Within this section, you have the opportunity to modify and personalize the various customizable properties of the component. By interacting with the input fields provided below, you can adjust these settings to meet your specific preferences and requirements.</p>
-    </article>
-    <section class="parameters">
-        <div>
-            <label for="">Template: </label>
-            <select [(ngModel)]="selectedTemplate" (ngModelChange)="onTemplateChange($event)" name="gfa" id="">
-                <option value="classicB&W">Classic B&W</option>
-                <option value="neoViolet">NeoViolet</option>
-                <option value="custom">Custom</option>
-            </select>
-        </div>
-        <hr>
-        <div class="color-inputs">
-          <label for="">Primary color: </label>
-          <input type="text" value="#" maxlength="7">
-          <label for="">Secondary color: </label>
-          <input type="text" value="#" maxlength="7">
-          <label for="">Input color: </label>
-          <input type="text" value="#" maxlength="7">
-        </div>
-    </section>
-    <div class="main-component">
-        <app-auth *ngIf="componentVisible" [theme]="selectedTemplate"></app-auth>
+  <article class="introduction">
+    <p>Welcome to the Playground Component. Within this section, you have the opportunity to modify and personalize the
+      various customizable properties of the component. By interacting with the input fields provided below, you can
+      adjust these settings to meet your specific preferences and requirements.</p>
+  </article>
+  <section class="parameters">
+    <div>
+      <label for="">Template: </label>
+      <select [(ngModel)]="selectedTemplate" (ngModelChange)="onTemplateChange($event)" name="selectTemplate" id="">
+        <option value="classicB&W">Classic B&W</option>
+        <option value="neoViolet">NeoViolet</option>
+        <option value="custom">Custom</option>
+      </select>
     </div>
-</section>
+    <hr>
+    <div class="color-inputs">
+      <label>Primary color: </label>
+      <input type="text" maxlength="7" [(ngModel)]="primaryColor" [disabled]="selectedTemplate !== 'custom'">
 
+      <label>Secondary color: </label>
+      <input type="text" maxlength="7" [(ngModel)]="secondaryColor" [disabled]="selectedTemplate !== 'custom'">
+
+      <label>Input color: </label>
+      <input type="text" maxlength="7" [(ngModel)]="inputColor" [disabled]="selectedTemplate !== 'custom'">
+
+      <button (click)="validateCustomColors()">magic</button>
+    </div>
+  </section>
+  <div class="main-component">
+    <app-auth *ngIf="componentVisible" [theme]="selectedTemplate" [primary]="primaryColor" [secundary]="secondaryColor" [input]="inputColor"></app-auth>
+  </div>
+</section>

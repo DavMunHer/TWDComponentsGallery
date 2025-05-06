@@ -3,6 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 0.5em;
+  font-size: large;
 
   .introduction {
     grid-row: span 2 / span 2;
@@ -26,6 +27,7 @@
   .color-inputs {
     display: flex;
     flex-direction: column;
+    gap: 0.2em;
   }
 
   hr {
@@ -36,10 +38,9 @@
   }
 
   input {
-    border: 0.1rem solid #dbeafe;
+    border: 0.1rem solid #9c9c9c;
     border-radius: 0.25rem;
-    background-color: #f0f9ff;
-    color: #1e3a8a;
+    background-color: #e8e4ec;
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
     font-size: 1rem;
@@ -50,5 +51,48 @@
   input:focus {
     border-color: #3b82f6;
     box-shadow: 0 0 0 0.125rem rgba(59, 130, 246, 0.25);
+  }
+
+  select {
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.3rem;
+    border: 0.05rem solid #ccc;
+    background-color: white;
+    color: #333;
+    font-size: 1rem;
+  }
+
+  select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0.2rem #3b82f6;
+  }
+
+  option {
+    background-color: white;
+    color: #333;
+    padding: 0.5rem;
+  }
+
+  .color-inputs input:disabled,
+  .color-inputs button:disabled {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: #888;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  button {
+    margin-top: 1.5rem;
+    padding: 0.6em 1.2em;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: 6rem;
   }
 }
