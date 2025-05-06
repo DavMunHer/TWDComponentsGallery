@@ -20,7 +20,7 @@
     grid-column-start: 2;
     grid-row-start: 1;
     justify-self: center;
-  align-self: center;
+    align-self: center;
   }
 
   .color-inputs {
@@ -28,7 +28,7 @@
     flex-direction: column;
   }
 
-  hr{
+  hr {
     height: 2px;
     background-color: black;
     border: none;
@@ -51,5 +51,4 @@
     border-color: #3b82f6;
     box-shadow: 0 0 0 0.125rem rgba(59, 130, 246, 0.25);
   }
-
 }

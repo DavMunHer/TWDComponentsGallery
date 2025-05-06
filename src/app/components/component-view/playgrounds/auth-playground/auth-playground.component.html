@@ -6,7 +6,7 @@
     <section class="parameters">
         <div>
             <label for="">Template: </label>
-            <select name="" id="">
+            <select [(ngModel)]="selectedTemplate" (ngModelChange)="onTemplateChange($event)" name="gfa" id="">
                 <option value="classicB&W">Classic B&W</option>
                 <option value="neoViolet">NeoViolet</option>
                 <option value="custom">Custom</option>
@@ -23,7 +23,7 @@
         </div>
     </section>
     <div class="main-component">
-        <app-auth [theme]="'classicB&W'"></app-auth>
+        <app-auth *ngIf="componentVisible" [theme]="selectedTemplate"></app-auth>
     </div>
 </section>
 
