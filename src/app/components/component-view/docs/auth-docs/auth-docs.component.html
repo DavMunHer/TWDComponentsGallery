@@ -1,1 +1,110 @@
-<p>auth-docs works!</p>
+<div class="main-container">
+    <div class="centered-container">
+        <article class="article-container">
+            <h2 class="article-title">Basic installation</h2>
+            <p>For using this component, first you will have to download the npm package in your Angular project:
+            </p>
+            <p>From you command line:</p>
+            <code-container>
+                <span class="line">npm install &#64;triwebdev/auth-component</span>
+            </code-container>
+            <p>Once downloaded, you can import the component in your standalone components like this:</p>
+            <code-container>
+                <span class="line">import &lbrace; Component &rbrace; from "&#64;angular/core";</span>
+                <span class="line marked">import &lbrace; AuthComponent &rbrace; from "auth";</span>
+                <span class="line">&nbsp;</span>
+                <span class="line">&#64;Component(&lbrace;</span>
+                <span class="line">&nbsp;&nbsp;selector: "app-auth-implementation",</span>
+                <span class="line marked">&nbsp;&nbsp;imports: [AuthComponent],</span>
+                <span class="line">&nbsp;&nbsp;templateUrl: "./auth-implementation.component.html",</span>
+                <span class="line">&nbsp;&nbsp;styleUrl: "./auth-implementation.component.css",</span>
+                <span class="line">&rbrace;)</span>
+                <span class="line">&nbsp;</span>
+                <span class="line">export class AuthImplementationComponent &lbrace;&rbrace;</span>
+            </code-container>
+            <p>And in your html like this:</p>
+            <code-container>
+                <span class="line">&lt;app-auth&gt;&lt;/app-auth&gt;</span>
+            </code-container>
+            <p class="bold">Please note that the component will not work until you follow the configuration!</p>
+        </article>
+
+        <article class="article-container">
+            <h2 class="article-title">Component configuration</h2>
+            <h3>Provider</h3>
+            <p>After installing the component and adding it to the implementation component, you have to configure the
+                auth component requirements for it to work:</p>
+            <p>In your <span class="keyword">app.config.ts</span> you should add a provider:</p>
+            <code-container>
+                <span class="line">provideAuth(&lbrace; apiUrl: "http://localhost:3000/", loginRedirectionUrl: "/home"
+                    &rbrace;);</span>
+            </code-container>
+            <p>The <span class="keyword">apiUrl</span> parameter is the backend main url that will be handling the
+                requests from the form. In this
+                example, the login endpoint of the backend would be "<span
+                    class="link">http://localhost:3000/login</span>" and the sign up endpoint would be: " <span
+                    class="link">http://localhost:3000/create</span>". Hence, if you put the value "<span
+                    class="link">http://localhost:3000/users</span>" in the apiUrl parameter, the request will be
+                handled in the "<span class="link">http://localhost:3000/users/login</span>" for the login form and
+                "<span class="link">http://localhost:3000/users/create</span>" in the register form.</p>
+            <p>Example on how the request.body is received in the login endpoint:</p>
+            <code-container>
+                <span class="line">&lbrace;</span>
+                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;email: "mail&#64;domain.com",</span>
+                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;password: "myPassword",</span>
+                <span class="line">&rbrace;</span>
+            </code-container>
+            <p>Example on how the request.body is received in the signup endpoint:</p>
+            <code-container>
+                <span class="line">&lbrace;</span>
+                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;name: "myName",</span>
+                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;email: "mail&#64;domain.com",</span>
+                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;password: "myPassword",</span>
+                <span class="line">&rbrace;</span>
+            </code-container>
+            <p>Keep in mind that the form makes HTTP requests, so make sure to add the httpClient provider in the
+                <span class="keyword">app.config.ts</span> file.
+            </p>
+            <p>Thus, the <span class="keyword">app.config.ts</span> file should look similar to this:</p>
+            <code-container>
+                <span class="line">export const appConfig: ApplicationConfig = &lbrace;</span>
+                <span class="line">&nbsp;&nbsp;providers: [</span>
+                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;provideZoneChangeDetection(&lbrace; eventCoalescing: true
+                    &rbrace;),</span>
+                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;provideRouter(routes),</span>
+                <span class="line marked">&nbsp;&nbsp;&nbsp;&nbsp;provideHttpClient(),</span>
+                <span class="line markeds">&nbsp;&nbsp;&nbsp;&nbsp;provideAuth(&lbrace; apiUrl:
+                    "http://localhost:3000/",
+                    loginRedirectionUrl: "/home" &rbrace;)</span>
+                <span class="line">&nbsp;&nbsp;],</span>
+                <span class="line">&rbrace;;</span>
+            </code-container>
+            <h3>Inputs</h3>
+            <p>The component has some different inputs that you can use to customize the theme.</p>
+            <p>The <span class="keyword">theme</span> input allows you to choose between some established themes like
+                'classicB&W' and 'neoViolet' :</p>
+            <code-container>
+                <span class="line">&lt;app-auth [theme]="'ClassicB&W'" &gt;&lt;/app-auth&gt;</span>
+            </code-container>
+            <p>The <span class="keyword">primary</span>, <span class="keyword">secundary</span> and <span
+                    class="keyword">input</span> inputs allows you to put your own customized colors to the component:
+            </p>
+            <code-container>
+                <span class="line">&lt;app-auth [primary]="'#f62'" [secundary]="'#2f2'" [input]="'#0ff'"
+                    &gt;&lt;/app-auth&gt;</span>
+            </code-container>
+        </article>
+        <article class="article-container">
+            <h2 class="article-title">Authors</h2>
+            <p>These are the authors of this component:</p>
+            <code-container>
+                <span class="line">GitHub: <a class="author-link" target="_blank" href="https://github.com/DavMunHer">&#64;DavMunHer</a>
+                    LinkedIn: <a class="author-link" target="_blank" href="https://linkedin.com/in/davmunher">&#64;David Muñoz Herrero</a>
+                </span>
+                <span class="line">GitHub: <a class="author-link" target="_blank" href="https://github.com/oscbarcan">&#64;OscBarCan</a>
+                    LinkedIn: <a class="author-link" target="_blank" href="https://linkedin.com/in/osbarca">&#64;Oscar Barber Canet</a>
+                </span>
+            </code-container>
+        </article>
+    </div>
+</div>
