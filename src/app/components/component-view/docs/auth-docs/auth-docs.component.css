@@ -1,5 +1,5 @@
 :host {
-    /* Define required variables */
+    --bold-size: 600;
 }
 
 .main-container {
@@ -9,16 +9,48 @@
     align-items: center;
     font-size: large;
 
-    & section {
+    & .centered-container {
         width: 60%;
 
-        & article .article-title {
-            text-align: center;
+        & .article-container {
+            margin-bottom: 1em;
+            
+            & .article-title {
+                text-align: center;
+            }
         }
     }
 }
 
+/* Styles that can be applied anywhere */
 .line {
     display: block;
 }
 
+.marked {
+    background-color: #d7e3ff;
+    font-weight: var(--bold-size);
+}
+
+.bold {
+    font-weight: var(--bold-size);
+}
+
+.link {
+    text-decoration: underline;
+}
+
+p {
+    margin-block: 5px;
+}
+
+.keyword {
+    background-color: #ddd;
+    border-radius: 10%;
+    padding: 3px;
+}
+
+.author-link {
+    color: #f00c;
+    font-weight: var(--bold-size);
+}
