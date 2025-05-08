@@ -17,18 +17,20 @@
     <hr>
     <div class="color-inputs">
       <label>Primary color: </label>
-      <input type="text" maxlength="7" [(ngModel)]="primaryColor" [disabled]="selectedTemplate !== 'custom'">
+      <input type="text" maxlength="7" [(ngModel)]="primaryColor" [disabled]="selectedTemplate() !== 'custom'">
 
       <label>Secondary color: </label>
-      <input type="text" maxlength="7" [(ngModel)]="secondaryColor" [disabled]="selectedTemplate !== 'custom'">
+      <input type="text" maxlength="7" [(ngModel)]="secondaryColor" [disabled]="selectedTemplate() !== 'custom'">
 
       <label>Input color: </label>
-      <input type="text" maxlength="7" [(ngModel)]="inputColor" [disabled]="selectedTemplate !== 'custom'">
+      <input type="text" maxlength="7" [(ngModel)]="inputColor" [disabled]="selectedTemplate() !== 'custom'">
 
       <button (click)="validateCustomColors()">magic</button>
     </div>
   </section>
   <div class="main-component">
-    <app-auth *ngIf="componentVisible" [theme]="selectedTemplate" [primary]="primaryColor" [secundary]="secondaryColor" [input]="inputColor"></app-auth>
+    @if (componentVisible()) {
+      <app-auth [theme]="selectedTemplate()" [primary]="primaryColor()" [secundary]="secondaryColor()" [input]="inputColor()"></app-auth>
+    }
   </div>
 </section>
