@@ -20,6 +20,7 @@
 
     & .right-content .docs {
         margin-inline: var(--main-margin-x);
+        margin-top: 0.5em;
     }
 }
 
