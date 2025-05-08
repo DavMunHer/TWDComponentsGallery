@@ -8,9 +8,14 @@
     justify-content: center;
     align-items: center;
     font-size: large;
+    margin-top: 0.5rem;
 
     & .centered-container {
         width: 60%;
+
+        @media (max-width: 1200px) {
+            width: 80%;
+        }
 
         & .article-container {
             margin-bottom: 1em;
@@ -46,11 +51,11 @@ p {
 
 .keyword {
     background-color: #ddd;
-    border-radius: 10%;
+    border-radius: 4px;
     padding: 3px;
 }
 
 .author-link {
-    color: #f00c;
+    color: #195EB3;
     font-weight: var(--bold-size);
 }
