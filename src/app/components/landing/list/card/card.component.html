@@ -5,7 +5,7 @@
     </div>
   </a>
   <footer class="footer">
-    <a [routerLink]="['/components', cardInfo().componentNameInUrl, 'playground']">
+    <a class="card-link" [routerLink]="['/components', cardInfo().componentNameInUrl, 'playground']">
       <span class="card-title">{{cardInfo().name | capitalize}}</span>
     </a>
     <div class="card-extra-info">
