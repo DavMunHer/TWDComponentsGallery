@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './auth-playground.component.css'
 })
 export class AuthPlaygroundComponent {
-  selectedTemplate: WritableSignal<"classicB&W" | "neoViolet" | "custom"> = signal('custom');
+  selectedTemplate: WritableSignal<"classicB&W" | "neoViolet" | "custom"> = signal('classicB&W');
   componentVisible = signal(true);
   primaryColor = signal('#372aac');
   secondaryColor = signal('#ffffff');
