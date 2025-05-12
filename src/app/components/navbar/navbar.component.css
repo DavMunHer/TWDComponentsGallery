@@ -34,6 +34,10 @@
       a {
         text-decoration: none;
         color: white;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
@@ -41,6 +45,10 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
