@@ -49,6 +49,10 @@
     & .footer {
         margin-inline: 1em;
 
+        & .card-link:hover {
+            text-decoration: underline;
+        }
+
         & .card-title {
             font-weight: 700;
             font-size: larger;
