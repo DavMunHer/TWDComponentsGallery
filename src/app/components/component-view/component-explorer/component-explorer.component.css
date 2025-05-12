@@ -41,6 +41,10 @@
         & .component-reference { 
             text-align: center;
             padding-inline: var(--padding-x);
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }
