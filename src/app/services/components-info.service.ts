@@ -55,4 +55,11 @@ export class ComponentsInfoService {
     });
   } 
 
+  public getComponentInfo(componentNameInUrl: string): ComponentInfo {
+    const componentsInfo = this.getComponentsInfo();
+
+    return componentsInfo.find((component) => {
+      return component.componentNameInUrl == componentNameInUrl
+    })!;
+  }
 }
