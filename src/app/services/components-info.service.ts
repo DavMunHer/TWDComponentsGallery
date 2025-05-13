@@ -18,14 +18,14 @@ export class ComponentsInfoService {
       gitHubUrl: 'https://github.com/TriWebDev/authLib-workspace',
     },
     {
-      name: 'ticket',
-      componentNameInUrl: 'ticket',
-      imageUrl: 'auth.jpg',
-      imageAlt: 'Ticket component demo image',
-      releasedDate: '2025-03-28',
-      packageName: '@triwebdev/auth-component',
-      npmPackageUrl: 'https://www.npmjs.com/package/@triwebdev/auth-component',
-      gitHubUrl: 'https://github.com/TriWebDev/authLib-workspace',
+      name: 'Code Container',
+      componentNameInUrl: 'coming soon',
+      imageUrl: 'coming-soon.jpg',
+      imageAlt: 'coming-soon',
+      releasedDate: '',
+      packageName: '',
+      npmPackageUrl: '',
+      gitHubUrl: '',
     },
     // {
     //   name: 'Whatever',
@@ -53,7 +53,7 @@ export class ComponentsInfoService {
     return componentsMinInfo.find((component) => {
       return component.componentNameInUrl === componentNameInUrl;
     });
-  } 
+  }
 
   public getComponentInfo(componentNameInUrl: string): ComponentInfo {
     const componentsInfo = this.getComponentsInfo();
