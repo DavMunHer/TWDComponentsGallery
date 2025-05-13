@@ -1,13 +1,15 @@
 <article class="card-container">
   <a [routerLink]="['/components', cardInfo().componentNameInUrl, 'playground']">
     @if (cardInfo().name == 'auth') {
-      <div class="image-container">
-        <img class="card-img" [src]="cardInfo().imageUrl" [alt]="cardInfo().imageAlt">
-      </div>
+    <div class="image-container">
+      <img class="card-img" [src]="cardInfo().imageUrl" [alt]="cardInfo().imageAlt">
+    </div>
     } @else {
-      <div class="image-container">
-          <span class="coming-soon">COMING SOON</span>
+    <div class="image-container">
+      <div class="card-img">
+        <span class="coming-soon">COMING SOON</span>
       </div>
+    </div>
     }
   </a>
   <footer class="footer">
