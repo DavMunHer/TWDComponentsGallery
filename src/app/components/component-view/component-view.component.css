@@ -1,0 +1,26 @@
+:host {
+    --main-margin-x: 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 1rem;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    & .right-content .playground {
+        margin-inline: var(--main-margin-x);
+        margin-top: 0.5em;
+    }
+
+    & .right-content .docs {
+        margin-inline: var(--main-margin-x);
+        margin-top: 0.5em;
+    }
+}
+

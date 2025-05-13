@@ -1,0 +1,29 @@
+:host {
+    --sidebar-x-margin: 1em;
+    --sidebar-separator-color: #aaa; 
+}
+.sidebar-styles {
+    border-right: 1px solid var(--sidebar-separator-color);
+    height: 100%;
+    padding-top: 2em;
+    
+    & .sidebar-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+        margin-inline: var(--sidebar-x-margin);
+
+        & .component-container {
+            padding-inline: 1em;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.active {
+                background-color: #06e4;
+                border-radius: 2rem;
+            }
+        }
+    }
+}

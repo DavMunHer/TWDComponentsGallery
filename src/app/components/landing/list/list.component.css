@@ -1,0 +1,14 @@
+.components-section {
+    padding-inline: 4rem;
+    min-height: 100vh;
+
+    & .components-list {
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 1rem;
+    }
+}

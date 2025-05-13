@@ -1,0 +1,31 @@
+<navbar />
+<header class="header">
+  <h1>{{componentName() | capitalize}} Component</h1>
+</header>
+<main>
+    <section class="main">
+        <components-sidebar/>
+        <div class="right-content">
+            <section class="component-explorer">
+                <component-explorer />
+            </section>
+            @if (showedInfo() == 'docs') {
+                <section class="docs">
+                    @switch (componentName()) {
+                        @case ('auth') {
+                            <auth-docs />
+                        }
+                    }
+                </section>
+            } @else {
+                <section class="playground">
+                    @switch (componentName()) {
+                        @case ('auth') {
+                            <auth-playground />
+                        }
+                    }
+                </section>
+            }
+        </div>
+    </section>
+</main>
