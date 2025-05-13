@@ -22,11 +22,17 @@ export class CardComponent implements OnInit {
     version: '',
     sizeInKb: 0
   });
+  protected linksEnabled = signal<boolean>(true);
 
 
   private cardService = inject(CardService);
 
   ngOnInit(): void {
+    if (this.cardInfo().componentNameInUrl == "coming soon") {
+      this.linksEnabled.set(false);
+    }
+
+    /* Load dynamic info */
     this.cardService.getExtraInfo(this.cardInfo().packageName).subscribe((data: PartialDynamicCardInfo) => {
       this.dynamicCardInfo.set({ ...this.dynamicCardInfo(), ...data });
     });
