@@ -1,6 +1,6 @@
 <article class="card-container">
   <a [routerLink]="['/components', cardInfo().componentNameInUrl, 'playground']">
-    @if (cardInfo().name == 'auth') {
+    @if (cardInfo().componentNameInUrl != 'coming soon') {
     <div class="image-container">
       <img class="card-img" [src]="cardInfo().imageUrl" [alt]="cardInfo().imageAlt">
     </div>

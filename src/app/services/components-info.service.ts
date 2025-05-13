@@ -20,8 +20,8 @@ export class ComponentsInfoService {
     {
       name: 'Code Container',
       componentNameInUrl: 'coming soon',
-      imageUrl: 'coming-soon.jpg',
-      imageAlt: 'coming-soon',
+      imageUrl: '',
+      imageAlt: '',
       releasedDate: '',
       packageName: '',
       npmPackageUrl: '',
