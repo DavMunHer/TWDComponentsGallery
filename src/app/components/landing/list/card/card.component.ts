@@ -30,15 +30,15 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     if (this.cardInfo().componentNameInUrl == "coming soon") {
       this.linksEnabled.set(false);
+    } else {
+      /* Load dynamic info */
+      this.cardService.getExtraInfo(this.cardInfo().packageName).subscribe((data: PartialDynamicCardInfo) => {
+        this.dynamicCardInfo.set({ ...this.dynamicCardInfo(), ...data });
+      });
+      
+      this.cardService.getTotalDownloads(this.cardInfo().releasedDate, this.cardInfo().packageName).subscribe((downloads) => {
+        this.dynamicCardInfo.set({ ...this.dynamicCardInfo(), downloads })
+      });
     }
-
-    /* Load dynamic info */
-    this.cardService.getExtraInfo(this.cardInfo().packageName).subscribe((data: PartialDynamicCardInfo) => {
-      this.dynamicCardInfo.set({ ...this.dynamicCardInfo(), ...data });
-    });
-
-    this.cardService.getTotalDownloads(this.cardInfo().releasedDate, this.cardInfo().packageName).subscribe((downloads) => {
-      this.dynamicCardInfo.set({ ...this.dynamicCardInfo(), downloads })
-    });
   }
 }
