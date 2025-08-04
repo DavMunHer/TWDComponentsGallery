@@ -40,7 +40,7 @@
     }
     <div class="card-extra-info">
       <div class="extra-info-container">
-        <p>{{dynamicCardInfo().daysDiff}} days ago · {{dynamicCardInfo().downloads}} downloads</p>
+        <p>{{dynamicCardInfo().daysDiff | time}} ago · {{dynamicCardInfo().downloads}} downloads</p>
         <p>Version {{dynamicCardInfo().version}} · {{dynamicCardInfo().sizeInKb}}kB</p>
       </div>
       <div class="extra-buttons-container">

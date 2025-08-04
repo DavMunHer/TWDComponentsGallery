@@ -5,11 +5,12 @@ import { ComponentInfo } from '../../../../interfaces/component-info';
 import { DynamicCardInfo, PartialDynamicCardInfo } from '../../../../interfaces/dynamic-card';
 import { CardService } from '../../../../services/card.service';
 import { RouterLink } from '@angular/router';
+import { TimePipe } from '../../../../pipes/time.pipe';
 
 
 @Component({
   selector: 'app-card',
-  imports: [CapitalizePipe, RouterLink],
+  imports: [CapitalizePipe, RouterLink, TimePipe],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
