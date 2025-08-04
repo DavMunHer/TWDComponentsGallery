@@ -8,9 +8,14 @@
 
     --hover-links-color: #195EB3;
 
+    --coming-soon-rotation: -28deg;
+    --coming-soon-font-size: 70px;
+
     @media (width <=48rem) {
         --card-width: 500px;
         --card-height: 420px;
+        --coming-soon-rotation: 0deg;
+        --coming-soon-font-size: 60px;
     }
 
     @media (width <=40rem) {
@@ -54,9 +59,11 @@
             width: calc(var(--card-width) - (calc(var(--image-margin) * 2) + 5px));
             aspect-ratio: 8/5;
             font-weight: 800;
-            font-size: 70px;
-            transform: rotate(-28deg);
+            font-size: var(--coming-soon-font-size);
+            transform: rotate(var(--coming-soon-rotation));
             text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            user-select: none;
         }
     }
 

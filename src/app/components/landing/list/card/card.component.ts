@@ -5,11 +5,12 @@ import { ComponentInfo } from '../../../../interfaces/component-info';
 import { DynamicCardInfo, PartialDynamicCardInfo } from '../../../../interfaces/dynamic-card';
 import { CardService } from '../../../../services/card.service';
 import { RouterLink } from '@angular/router';
+import { TimePipe } from '../../../../pipes/time.pipe';
 
 
 @Component({
   selector: 'app-card',
-  imports: [CapitalizePipe, RouterLink],
+  imports: [CapitalizePipe, RouterLink, TimePipe],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
@@ -30,15 +31,15 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     if (this.cardInfo().componentNameInUrl == "coming soon") {
       this.linksEnabled.set(false);
+    } else {
+      /* Load dynamic info */
+      this.cardService.getExtraInfo(this.cardInfo().packageName).subscribe((data: PartialDynamicCardInfo) => {
+        this.dynamicCardInfo.set({ ...this.dynamicCardInfo(), ...data });
+      });
+      
+      this.cardService.getTotalDownloads(this.cardInfo().releasedDate, this.cardInfo().packageName).subscribe((downloads) => {
+        this.dynamicCardInfo.set({ ...this.dynamicCardInfo(), downloads })
+      });
     }
-
-    /* Load dynamic info */
-    this.cardService.getExtraInfo(this.cardInfo().packageName).subscribe((data: PartialDynamicCardInfo) => {
-      this.dynamicCardInfo.set({ ...this.dynamicCardInfo(), ...data });
-    });
-
-    this.cardService.getTotalDownloads(this.cardInfo().releasedDate, this.cardInfo().packageName).subscribe((downloads) => {
-      this.dynamicCardInfo.set({ ...this.dynamicCardInfo(), downloads })
-    });
   }
 }

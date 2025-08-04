@@ -1,12 +1,24 @@
 .code-container {
     position: relative;
-    
+
     & .code-block {
         overflow: scroll;
         background-color: #eee;
         padding: 1em;
         z-index: 10;
         margin-block: 1em;
+
+        /* Styles for hiding scrollbar */
+        scrollbar-width: none;
+        /* For firefox */
+        -ms-overflow-style: none;
+        /* Older browser versions */
+
+        &::-webkit-scrollbar {
+            display: none;
+            /* For Chrome, Safari & Edge */
+        }
+
     }
 
     & .copy-button {
