@@ -17,14 +17,14 @@ export class AuthPlaygroundComponent {
   inputColor = signal('#e5e7eb');
 
   onTemplateChange(newTemplate: "classicB&W" | "neoViolet" | "custom" = 'classicB&W') {
+    this.componentVisible.set(false);
+    
     this.selectedTemplate.set(newTemplate);
-
     if (newTemplate === 'custom') {
       this.validateCustomColors();
     }
 
-    this.componentVisible.set(false);
-    setTimeout(() => this.componentVisible.set(true), 0);
+    setTimeout(() => this.componentVisible.set(true), 500);
   }
 
   validateCustomColors() {
