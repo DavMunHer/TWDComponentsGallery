@@ -1,41 +1,50 @@
-import { Component, Signal, signal, WritableSignal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AuthComponent } from "@triwebdev/auth-component";
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { AuthComponent } from '@triwebdev/auth-component';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'auth-playground',
-  imports: [AuthComponent, FormsModule, CommonModule],
+  imports: [AuthComponent, FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './auth-playground.component.html',
-  styleUrl: './auth-playground.component.css'
+  styleUrl: './auth-playground.component.css',
 })
-export class AuthPlaygroundComponent {
-  selectedTemplate: WritableSignal<"classicB&W" | "neoViolet" | "custom"> = signal('classicB&W');
-  componentVisible = signal(true);
-  primaryColor = signal('#372aac');
-  secondaryColor = signal('#ffffff');
-  inputColor = signal('#e5e7eb');
+export class AuthPlaygroundComponent implements OnInit {
+  protected selectedTemplate: WritableSignal<'classicB&W' | 'neoViolet' | 'custom'> = signal('classicB&W');
+  protected componentVisible = signal(true);
 
-  onTemplateChange(newTemplate: "classicB&W" | "neoViolet" | "custom" = 'classicB&W') {
+  protected customColorsForm = new FormGroup({
+    primaryColor: new FormControl('#372aac', { nonNullable: true }),
+    secondaryColor: new FormControl('#ffffff', { nonNullable: true }),
+    inputColor: new FormControl('#e5e7eb', { nonNullable: true }),
+  });
+
+  protected customColors = signal(this.customColorsForm.getRawValue());
+
+  ngOnInit(): void {
+    this.customColorsForm.disable(); // Form will only be enabled when the template is customized
+  }
+
+  protected onTemplateChange(newTemplate: 'classicB&W' | 'neoViolet' | 'custom') {
     this.componentVisible.set(false);
-    
-    this.selectedTemplate.set(newTemplate);
-    if (newTemplate === 'custom') {
-      this.validateCustomColors();
-    }
 
+    if (newTemplate === 'custom') {
+      this.customColorsForm.enable();
+    } else {
+      this.customColorsForm.disable();
+    }
+    this.selectedTemplate.set(newTemplate);
     setTimeout(() => this.componentVisible.set(true), 500);
   }
 
-  validateCustomColors() {
-    const inputs = document.querySelectorAll<HTMLInputElement>('.color-inputs input');
-    const [primaryInput, secondaryInput, inputInput] = Array.from(inputs);
-
-    this.primaryColor.set(primaryInput.value.trim());
-    this.secondaryColor.set(secondaryInput.value.trim());
-    this.inputColor.set(inputInput.value.trim());
-
+  protected changeCustomColors() {
     this.componentVisible.set(false);
-    setTimeout(() => this.componentVisible.set(true), 0);
+    this.customColors.set(this.customColorsForm.getRawValue());
+    setTimeout(() => this.componentVisible.set(true), 500);
   }
 }

@@ -8,29 +8,29 @@
   <section class="parameters">
     <div>
       <label for="">Template: </label>
-      <select [(ngModel)]="selectedTemplate" (ngModelChange)="onTemplateChange($event)" name="selectTemplate" id="">
+      <select [(ngModel)]="selectedTemplate" (ngModelChange)="onTemplateChange($event)" name="selectTemplate">
         <option value="classicB&W">Classic B&W</option>
         <option value="neoViolet">NeoViolet</option>
         <option value="custom">Custom</option>
       </select>
     </div>
     <hr>
-    <div class="color-inputs">
+    <form class="color-inputs" [formGroup]="customColorsForm">
       <label>Primary color: </label>
-      <input type="text" maxlength="7" [(ngModel)]="primaryColor" [disabled]="selectedTemplate() !== 'custom'">
+      <input type="text" maxlength="7" formControlName="primaryColor">
 
       <label>Secondary color: </label>
-      <input type="text" maxlength="7" [(ngModel)]="secondaryColor" [disabled]="selectedTemplate() !== 'custom'">
+      <input type="text" maxlength="7" formControlName="secondaryColor">
 
       <label>Input color: </label>
-      <input type="text" maxlength="7" [(ngModel)]="inputColor" [disabled]="selectedTemplate() !== 'custom'">
+      <input type="text" maxlength="7" formControlName="inputColor">
 
-      <button (click)="validateCustomColors()">Apply</button>
-    </div>
+      <button (click)="changeCustomColors()">Apply</button>
+    </form>
   </section>
   <div class="main-component">
     @if (componentVisible()) {
-      <app-auth [theme]="selectedTemplate()" [primary]="primaryColor()" [secundary]="secondaryColor()" [input]="inputColor()"></app-auth>
+      <app-auth [theme]="selectedTemplate()" [primary]="customColors().primaryColor" [secundary]="customColors().secondaryColor" [input]="customColors().inputColor"></app-auth>
     }
   </div>
 </section>
