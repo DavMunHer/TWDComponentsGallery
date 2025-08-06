@@ -42,6 +42,25 @@ export class AuthPlaygroundComponent implements OnInit {
     setTimeout(() => this.componentVisible.set(true), 500);
   }
 
+  protected randomizeCustomColors() {
+    const options = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+    let colors = ["#", "#", "#"];
+    for (let i = 0; i < colors.length; i++) {
+      for (let j = 0; j < 6; j++) {
+        colors[i] += options[Math.floor(Math.random() * options.length)]
+      }
+    }
+    this.componentVisible.set(false);
+    console.log(this.customColors());
+    this.customColorsForm.patchValue({
+      primaryColor: colors[0],
+      secondaryColor: colors[1],
+      inputColor: colors[2]
+    });
+    this.customColors.set(this.customColorsForm.getRawValue())
+    setTimeout(() => this.componentVisible.set(true), 0);
+  }
+
   protected changeCustomColors() {
     this.componentVisible.set(false);
     this.customColors.set(this.customColorsForm.getRawValue());

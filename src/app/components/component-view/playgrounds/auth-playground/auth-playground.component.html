@@ -25,7 +25,10 @@
       <label>Input color: </label>
       <input type="text" maxlength="7" formControlName="inputColor">
 
-      <button (click)="changeCustomColors()">Apply</button>
+      @if (selectedTemplate() == "custom") {
+        <button (click)="randomizeCustomColors()">Random</button>
+        <button (click)="changeCustomColors()">Apply</button>
+      }
     </form>
   </section>
   <div class="main-component">
