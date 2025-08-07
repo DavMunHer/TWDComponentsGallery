@@ -47,26 +47,30 @@
 
 
     & > .color-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: center;
+      align-items: center;
 
-
-      & > button {
-          margin-top: 1.5rem;
-          padding: 0.6em 1.2em;
+      & > .form-buttons-container {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 1rem;
+        align-items: center;
+      }
+      
+      & button {
+          padding: 0.5em 1.5em;
           background-color: #3498db;
           color: white;
           border: none;
           border-radius: 8px;
-          font-size: 1rem;
+          font-size: 1.1rem;
           cursor: pointer;
           transition: background-color 0.3s ease;
-          max-width: 6rem;
+          max-width: 8rem;
         }
     
-        & > .form-inputs-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.2em;
-
         & input:disabled,
         & button:disabled {
           background-color: #f0f0f0;
@@ -84,13 +88,19 @@
           transition: border-color 0.2s, box-shadow 0.2s;
           font-size: 1rem;
           width: auto;
-          max-width: 12rem;
+          margin-right: 1rem;
+          height: 2rem;
 
           &:focus {
             border-color: #3b82f6;
             box-shadow: 0 0 0 0.125rem rgba(59, 130, 246, 0.25);
           }
         }
+
+        & > .form-inputs-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2em;
       }
     }
   }
