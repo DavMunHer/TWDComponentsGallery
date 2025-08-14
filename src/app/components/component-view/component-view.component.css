@@ -12,6 +12,7 @@
 .main {
     display: grid;
     grid-template-columns: auto 1fr;
+    overflow: scroll;
 
     & .right-content .playground {
         margin-inline: var(--main-margin-x);
