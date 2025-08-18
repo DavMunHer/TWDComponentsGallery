@@ -4,11 +4,10 @@
         <components-sidebar />
     </div>
     <div class="right-content">
-        <header class="header">
-            <h1>{{componentName() | capitalize}} Component</h1>
-        </header>
         <main>
-            <component-explorer />
+            <div class="component-explorer-container">
+                <component-explorer />
+            </div>
             <div class="component-info">
                 @if (showedInfo() == 'docs') {
                 <section class="docs">

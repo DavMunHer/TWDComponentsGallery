@@ -10,12 +10,8 @@
         flex: 1;
         margin-left: var(--sidebar-container-width);
 
-        & .header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-block: 1rem;
-            margin-left: calc(var(--sidebar-container-width) * -1); /* For centering title to the middle of the screen */
+        & .component-explorer-container {
+            margin-top: 1em;
         }
 
         & .component-info {
