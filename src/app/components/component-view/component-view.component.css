@@ -1,6 +1,6 @@
 :host {
     --main-margin-x: 1rem;
-    --sidebar-container-width: 250px;
+    --sidebar-container-width: 200px;
 }
 
 .content {

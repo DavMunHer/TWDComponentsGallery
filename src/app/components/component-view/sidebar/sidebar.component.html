@@ -5,8 +5,8 @@
             @if (componentInfo.componentNameInUrl != 'coming soon') {
                 <a class="component-container" [ngClass]="{'active': componentInfo.componentNameInUrl == selectedComponentNameInUrl()}"
                 [routerLink]="['/components', componentInfo.componentNameInUrl , 'playground']">
-                <div >
-                    <span>{{componentInfo.name | capitalize}} Component</span>
+                <div>
+                    <span class="component-name">{{componentInfo.name | capitalize}}</span>
                 </div>
             </a>
             }

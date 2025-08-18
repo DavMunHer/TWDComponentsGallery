@@ -2,6 +2,7 @@
     --sidebar-x-margin: 1em;
     --sidebar-separator-color: #aaa; 
     --navbar-height: 65px;
+    --sidebar-width: 200px;
 }
 .sidebar-styles {
     border-right: 1px solid var(--sidebar-separator-color);
@@ -9,7 +10,7 @@
     position: fixed;
     top: var(--navbar-height);
     height: calc(100vh - var(--navbar-height));
-    width: 250px;
+    width: var(--sidebar-width);
 
     & .sidebar-container {
         display: grid;
@@ -27,7 +28,9 @@
             &.active {
                 background-color: #06e4;
                 border-radius: 2rem;
+                font-weight: 800;
             }
+
         }
     }
 }
