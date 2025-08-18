@@ -1,5 +1,6 @@
 :host {
     --main-margin-x: 1rem;
+    --sidebar-container-width: 250px;
 }
 
 .content {
@@ -7,13 +8,14 @@
 
     & .right-content {
         flex: 1;
-        margin-left: 250px;
+        margin-left: var(--sidebar-container-width);
 
         & .header {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-block: 1rem;
+            margin-left: calc(var(--sidebar-container-width) * -1); /* For centering title to the middle of the screen */
         }
 
         & .component-info {
@@ -22,3 +24,4 @@
         }
     }
 }
+
