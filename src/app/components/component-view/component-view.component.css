@@ -2,26 +2,23 @@
     --main-margin-x: 1rem;
 }
 
-.header {
+.content {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-block: 1rem;
-}
 
-.main {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    overflow: scroll;
+    & .right-content {
+        flex: 1;
+        margin-left: 250px;
 
-    & .right-content .playground {
-        margin-inline: var(--main-margin-x);
-        margin-top: 0.5em;
-    }
+        & .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-block: 1rem;
+        }
 
-    & .right-content .docs {
-        margin-inline: var(--main-margin-x);
-        margin-top: 0.5em;
+        & .component-info {
+            margin-inline: var(--main-margin-x);
+            margin-top: 0.5em;
+        }
     }
 }
-

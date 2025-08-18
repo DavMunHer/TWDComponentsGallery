@@ -1,12 +1,16 @@
 :host {
     --sidebar-x-margin: 1em;
     --sidebar-separator-color: #aaa; 
+    --navbar-height: 65px;
 }
 .sidebar-styles {
     border-right: 1px solid var(--sidebar-separator-color);
-    height: 100%;
     padding-top: 2em;
-    
+    position: fixed;
+    top: var(--navbar-height);
+    height: calc(100vh - var(--navbar-height));
+    width: 250px;
+
     & .sidebar-container {
         display: grid;
         grid-template-columns: 1fr;
