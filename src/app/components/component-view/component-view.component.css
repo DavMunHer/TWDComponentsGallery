@@ -1,6 +1,14 @@
 :host {
     --main-margin-x: 1rem;
+    
     --sidebar-container-width: 200px;
+    --sidebar-position: 0;
+    --left-margin: var(--sidebar-container-width);
+
+    @media (max-width: 1200px) {
+        --sidebar-position: calc(-1 * var(--sidebar-container-width));
+        --left-margin: 0px;
+    }
 }
 
 .content {
@@ -8,7 +16,7 @@
 
     & .right-content {
         flex: 1;
-        margin-left: var(--sidebar-container-width);
+        margin-left: var(--left-margin);
 
         & .component-explorer-container {
             margin-top: 1em;
