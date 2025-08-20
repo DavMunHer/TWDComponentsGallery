@@ -1,5 +1,5 @@
 <!-- The parent component will have to implement an aside tag including this component -->
-<aside class="sidebar-styles">
+<aside class="sidebar-styles" [ngClass]="{'active': showSidebar() == 'enable'}">
     <div class="sidebar-container">
         @for (componentInfo of componentsInfo; track $index) {
             @if (componentInfo.componentNameInUrl != 'coming soon') {

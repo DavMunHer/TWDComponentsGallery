@@ -23,6 +23,7 @@
         padding-inline: 15px;
         padding-block: 5px;
         border-radius: 20px;
+        user-select: none;
 
         &:hover {
             background-color: color-mix(in srgb, var(--navbar-color) 90%, #fff 10%);

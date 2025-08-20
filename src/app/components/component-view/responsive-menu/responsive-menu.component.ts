@@ -13,8 +13,10 @@ export class ResponsiveMenuComponent {
   protected emitSidebarChange() {
     if (this.currentSidebarView() == 'disabled') {
       this.toggleSidebarView.emit('enable');
+      this.currentSidebarView.set('enabled')
     } else {
       this.toggleSidebarView.emit('disable');
+      this.currentSidebarView.set('disabled')
     }
   }
 }
