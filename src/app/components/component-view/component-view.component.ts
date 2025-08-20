@@ -21,6 +21,13 @@ export class ComponentViewComponent implements OnInit{
   protected componentName = signal<string>('');
   protected showedInfo = signal<'docs' | 'playground'>(this.route.snapshot.params['showedInfo']);
 
+  
+  protected currentSidebarAction = signal<'enable' | 'disable'>('disable');
+
+  protected changeSidebarView(newView: 'enable' | 'disable') {
+    this.currentSidebarAction.set(newView);
+  }
+
 
   ngOnInit(): void {
     this.updateComponentName();

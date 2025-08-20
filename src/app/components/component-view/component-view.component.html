@@ -1,8 +1,8 @@
 <navbar />
-<responsive-menu/>
+<responsive-menu (toggleSidebarView)="changeSidebarView($event)" />
 <div class="content">
   <div class="sidebar-container">
-    <components-sidebar />
+    <components-sidebar [showSidebar]="currentSidebarAction()" />
   </div>
   <div class="right-content">
     <header class="component-explorer-container">

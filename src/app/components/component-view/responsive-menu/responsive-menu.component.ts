@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 
 @Component({
   selector: 'responsive-menu',
@@ -7,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './responsive-menu.component.css'
 })
 export class ResponsiveMenuComponent {
+  private currentSidebarView = signal<'enabled' | 'disabled'>('disabled');
+  public toggleSidebarView = output<'enable' | 'disable'>();
 
+  protected emitSidebarChange() {
+    if (this.currentSidebarView() == 'disabled') {
+      this.toggleSidebarView.emit('enable');
+    } else {
+      this.toggleSidebarView.emit('disable');
+    }
+  }
 }
