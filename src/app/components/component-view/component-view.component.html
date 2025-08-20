@@ -1,33 +1,34 @@
 <navbar />
+<responsive-menu/>
 <div class="content">
-    <div class="sidebar-container">
-        <components-sidebar />
-    </div>
-    <div class="right-content">
-        <header class="component-explorer-container">
-            <component-explorer />
-        </header>
-        <main>
-            <div class="component-info">
-                @if (showedInfo() == 'docs') {
-                <section class="docs">
-                    @switch (componentName()) {
-                    @case ('auth') {
-                    <auth-docs />
-                    }
-                    }
-                </section>
-                } @else {
-                <section class="playground">
-                    @switch (componentName()) {
-                    @case ('auth') {
-                    <auth-playground />
-                    }
-                    }
-                </section>
-                }
-            </div>
+  <div class="sidebar-container">
+    <components-sidebar />
+  </div>
+  <div class="right-content">
+    <header class="component-explorer-container">
+      <component-explorer />
+    </header>
+    <main>
+      <div class="component-info">
+        @if (showedInfo() == 'docs') {
+        <section class="docs">
+          @switch (componentName()) {
+            @case ('auth') {
+              <auth-docs />
+            }
+          }
+        </section>
+        } @else {
+        <section class="playground">
+          @switch (componentName()) {
+            @case ('auth') {
+              <auth-playground />
+            }
+          }
+        </section>
+        }
+      </div>
 
-        </main>
-    </div>
+    </main>
+  </div>
 </div>

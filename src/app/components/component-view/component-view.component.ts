@@ -1,16 +1,16 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { CapitalizePipe } from '../../pipes/capitalize.pipe';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentExplorerComponent } from './component-explorer/component-explorer.component';
 import { AuthDocsComponent } from './docs/auth-docs/auth-docs.component';
 import { AuthPlaygroundComponent } from './playgrounds/auth-playground/auth-playground.component';
 import { ComponentsInfoService } from '../../services/components-info.service';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { ResponsiveMenuComponent } from './responsive-menu/responsive-menu.component';
 
 @Component({
   selector: 'app-component-view',
-  imports: [SidebarComponent, CapitalizePipe, ComponentExplorerComponent, AuthDocsComponent, AuthPlaygroundComponent, NavbarComponent],
+  imports: [SidebarComponent, ComponentExplorerComponent, AuthDocsComponent, AuthPlaygroundComponent, NavbarComponent, ResponsiveMenuComponent],
   templateUrl: './component-view.component.html',
   styleUrl: './component-view.component.css'
 })
