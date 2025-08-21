@@ -1,13 +1,32 @@
 :host {
     --main-margin-x: 1rem;
-    
+
     --sidebar-container-width: 200px;
     --sidebar-position: 0;
     --left-margin: var(--sidebar-container-width);
+    --sidebar-separator-color: #aaa;
+
+
+    --sidebar-right-border: 1px solid var(--sidebar-separator-color);
+    --sidebar-border-radius: 0px;
+    --sidebar-padding-top: 2em;
+    --sidebar-background: transparent;
+    --sidebar-text-color: #000;
+    --active-component-background: #06e4;
+
 
     @media (max-width: 1200px) {
         --sidebar-position: calc(-1 * var(--sidebar-container-width));
         --left-margin: 0px;
+
+        --sidebar-background: color-mix(in srgb, #23252b 95%, #fff 5%);
+        --sidebar-right-border: none;
+        --sidebar-border-radius: 0px 15px 15px 0px;
+        --sidebar-padding-top: 1em;
+        --sidebar-text-color: #eee;
+
+        --active-component-background: color-mix(in srgb, #06e4 90%, #fff 10%);
+
     }
 }
 
@@ -28,4 +47,3 @@
         }
     }
 }
-

@@ -1,31 +1,27 @@
 :host {
     --sidebar-x-margin: 1em;
-    --sidebar-separator-color: #aaa;
     --navbar-height: 65px;
 }
 
 .sidebar-styles {
-    border-right: 1px solid var(--sidebar-separator-color);
-    padding-top: 2em;
+    /* Most of this variables are from the component-view component (father), for changing them all in the same media query */
+    border-right: var(--sidebar-right-border);
+    padding-top: var(--sidebar-padding-top);
     position: fixed;
     top: var(--navbar-height);
     left: var(--sidebar-position);
     height: calc(100vh - var(--navbar-height));
     width: var(--sidebar-container-width);
     overflow: scroll;
+    border-radius: var(--sidebar-border-radius);
+    background-color: var(--sidebar-background);
+    color: var(--sidebar-text-color);
+    z-index: 1000;
+
+    transition: left 0.3s ease;
 
     &.active {
         left: 0;
-        z-index: 1000;
-        background-color: color-mix(in srgb, #23252b 95%, #fff 5%);
-        border-right: none;
-        border-radius: 0px 15px;
-        padding-top: 1em;
-        color: #eee;
-
-        & .component-container.active {
-            background-color: color-mix(in srgb, #06e4 90%, #fff 10%) !important;
-        }
     }
 
     & .sidebar-container {
@@ -42,7 +38,7 @@
             align-items: center;
 
             &.active {
-                background-color: #06e4;
+                background-color: var(--active-component-background);
                 border-radius: 2rem;
                 font-weight: 800;
             }
