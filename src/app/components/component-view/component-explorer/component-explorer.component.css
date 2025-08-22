@@ -2,9 +2,21 @@
     --padding-x: 1em;
     --inline-margin: 2rem;
 
+    --references-gap: 2rem;
+
+    @media (max-width: 1200px) {
+        --references-gap: 1.5rem;
+    }
+
+    @media (max-width: 800px) {
+        --references-gap: 1rem;
+    }
+
     @media (max-width: 500px) {
         --inline-margin: 15px;
     }
+
+
 }
 
 .explorer-container {
@@ -48,12 +60,11 @@
         justify-self: end;
         display: flex;
         align-items: center;
-        margin-right: 2rem;
-        gap: 2rem;
+        margin-left: 1.5rem;
 
         & .component-reference {
             text-align: center;
-            padding-inline: var(--padding-x);
+            padding-inline: var(--references-gap);
 
             &:hover {
                 text-decoration: underline;
