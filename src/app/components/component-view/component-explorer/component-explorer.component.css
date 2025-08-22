@@ -1,16 +1,41 @@
 :host {
-    --padding-x: 1em; 
+    --padding-x: 1em;
+    --inline-margin: 2rem;
+
+    --references-gap: 2rem;
+
+    @media (max-width: 1200px) {
+        --references-gap: 1.5rem;
+    }
+
+    @media (max-width: 800px) {
+        --references-gap: 1rem;
+    }
+
+    @media (max-width: 500px) {
+        --inline-margin: 15px;
+    }
+
+
 }
 
 .explorer-container {
     display: grid;
     grid-template-columns: auto 1fr;
-    margin-inline: 2rem;
+    margin-inline: var(--inline-margin);
     border-bottom: 1px solid #ccc;
+    max-width: calc(100vw - 30px);
+    overflow: scroll;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
 
     & .explorer-options {
         display: flex;
-        
+
         & .explorer-option {
             display: flex;
             align-items: center;
@@ -35,15 +60,18 @@
         justify-self: end;
         display: flex;
         align-items: center;
-        margin-right: 2rem;
-        gap: 2rem;
+        margin-left: 1.5rem;
 
-        & .component-reference { 
+        & .component-reference {
             text-align: center;
-            padding-inline: var(--padding-x);
+            padding-inline: var(--references-gap);
 
-            &:hover {
-                text-decoration: underline;
+            & .reference-anchor {
+                width: fit-content;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
