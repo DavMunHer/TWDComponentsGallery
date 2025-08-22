@@ -1,16 +1,29 @@
 :host {
-    --padding-x: 1em; 
+    --padding-x: 1em;
+    --inline-margin: 2rem;
+
+    @media (max-width: 500px) {
+        --inline-margin: 15px;
+    }
 }
 
 .explorer-container {
     display: grid;
     grid-template-columns: auto 1fr;
-    margin-inline: 2rem;
+    margin-inline: var(--inline-margin);
     border-bottom: 1px solid #ccc;
+    max-width: calc(100vw - 30px);
+    overflow: scroll;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
 
     & .explorer-options {
         display: flex;
-        
+
         & .explorer-option {
             display: flex;
             align-items: center;
@@ -38,7 +51,7 @@
         margin-right: 2rem;
         gap: 2rem;
 
-        & .component-reference { 
+        & .component-reference {
             text-align: center;
             padding-inline: var(--padding-x);
 
