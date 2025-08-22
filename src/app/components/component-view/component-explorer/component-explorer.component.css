@@ -66,8 +66,12 @@
             text-align: center;
             padding-inline: var(--references-gap);
 
-            &:hover {
-                text-decoration: underline;
+            & .reference-anchor {
+                width: fit-content;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
