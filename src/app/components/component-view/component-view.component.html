@@ -2,7 +2,7 @@
 <responsive-menu [currentSidebarView]="sidebarStatus()" (toggleSidebarStatus)="changeSidebarView($event)" />
 <div class="content">
   <div class="sidebar-container">
-    <components-sidebar [sidebarCurrentStatus]="sidebarStatus()" />
+    <components-sidebar (clickOutside)="hideSidebar($event)" [sidebarCurrentStatus]="sidebarStatus()" />
   </div>
   <div class="right-content">
     <header class="component-explorer-container">

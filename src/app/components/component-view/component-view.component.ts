@@ -30,8 +30,8 @@ export class ComponentViewComponent implements OnInit {
   protected sidebarStatus = signal<'enabled' | 'disabled'>('disabled');
   private responsiveMenu = viewChild(ResponsiveMenuComponent, {read: ElementRef});
 
-  protected changeSidebarView(newView: 'enabled' | 'disabled') {
-    this.sidebarStatus.set(newView);
+  protected changeSidebarView(newStatus: 'enabled' | 'disabled') {
+    this.sidebarStatus.set(newStatus);
   }
 
   protected hideSidebar(target: HTMLElement) {
