@@ -4,10 +4,11 @@ import { CapitalizePipe } from '../../../pipes/capitalize.pipe';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ComponentMinInfo } from '../../../interfaces/component-min-info';
 import { NgClass } from '@angular/common';
+import { ClickOutsideDirective } from '../../../directives/click-outside.directive';
 
 @Component({
   selector: 'components-sidebar',
-  imports: [CapitalizePipe, RouterLink, NgClass],
+  imports: [CapitalizePipe, RouterLink, NgClass, ClickOutsideDirective],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
@@ -18,7 +19,7 @@ export class SidebarComponent implements OnInit {
   private route = inject(ActivatedRoute);
   protected selectedComponentNameInUrl = signal<string>(this.route.snapshot.params['name']);
 
-  public showSidebar = input.required<'enable' | 'disable'>();
+  public sidebarCurrentStatus = input.required<'enabled' | 'disabled'>();
 
   ngOnInit(): void {
     this.componentsInfo = this.componentsService.getComponentsMinInfo();
@@ -28,6 +29,7 @@ export class SidebarComponent implements OnInit {
       this.updateSelectedComponent();
     });
   }
+
 
   private updateSelectedComponent() {
     this.selectedComponentNameInUrl.set(this.route.snapshot.params['name']);
