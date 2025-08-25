@@ -1,31 +1,34 @@
 <navbar />
-<header class="header">
-  <h1>{{componentName() | capitalize}} Component</h1>
-</header>
-<main>
-    <section class="main">
-        <components-sidebar/>
-        <div class="right-content">
-            <section class="component-explorer">
-                <component-explorer />
-            </section>
-            @if (showedInfo() == 'docs') {
-                <section class="docs">
-                    @switch (componentName()) {
-                        @case ('auth') {
-                            <auth-docs />
-                        }
-                    }
-                </section>
-            } @else {
-                <section class="playground">
-                    @switch (componentName()) {
-                        @case ('auth') {
-                            <auth-playground />
-                        }
-                    }
-                </section>
+<responsive-menu [currentSidebarView]="sidebarStatus()" (toggleSidebarStatus)="changeSidebarView($event)" />
+<div class="content">
+  <div class="sidebar-container">
+    <components-sidebar (clickOutside)="hideSidebar($event)" [sidebarCurrentStatus]="sidebarStatus()" />
+  </div>
+  <div class="right-content">
+    <header class="component-explorer-container">
+      <component-explorer />
+    </header>
+    <main>
+      <div class="component-info">
+        @if (showedInfo() == 'docs') {
+        <section class="docs">
+          @switch (componentName()) {
+            @case ('auth') {
+              <!-- <auth-docs /> -->
             }
-        </div>
-    </section>
-</main>
+          }
+        </section>
+        } @else {
+        <section class="playground">
+          @switch (componentName()) {
+            @case ('auth') {
+              <!-- <auth-playground /> -->
+            }
+          }
+        </section>
+        }
+      </div>
+
+    </main>
+  </div>
+</div>

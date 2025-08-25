@@ -1,5 +1,6 @@
 .navbar {
   position: sticky;
+  height: 65px;
   top: 0;
   z-index: 1000;
   background-color: rgba(35, 37, 43, 1);
