@@ -28,16 +28,20 @@ export class ComponentViewComponent implements OnInit {
   protected showedInfo = signal<'docs' | 'playground'>(this.route.snapshot.params['showedInfo']);
 
   protected sidebarStatus = signal<'enabled' | 'disabled'>('disabled');
-  private responsiveMenu = viewChild(ResponsiveMenuComponent, {read: ElementRef});
+  private responsiveMenu = viewChild(ResponsiveMenuComponent);
 
   protected changeSidebarView(newStatus: 'enabled' | 'disabled') {
     this.sidebarStatus.set(newStatus);
   }
 
   protected hideSidebar(target: HTMLElement) {
-    if (!this.responsiveMenu()?.nativeElement.contains(target)) {
-      // We ignore the clickOutside when clicking in the menu component
-      this.sidebarStatus.set('disabled');
+    const responsiveMenuComponent = this.responsiveMenu();
+    if (responsiveMenuComponent) {
+      if (!responsiveMenuComponent.menuButtonContainer()?.nativeElement.contains(target)) {
+        // We ignore the clickOutside when clicking in the menu button container
+        // If this was not handled, it would result in an unexpected behaviour
+        this.sidebarStatus.set('disabled');
+      }
     }
   }
 
