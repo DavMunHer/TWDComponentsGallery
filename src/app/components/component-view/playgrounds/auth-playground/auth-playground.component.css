@@ -43,6 +43,7 @@
 
   @media (max-width:450px) {
     --component-width: 350px;
+    --playground-width: 100%;
   }
 }
 
