@@ -1,8 +1,14 @@
 :host {
   --auth-component-distribution: 1fr;
   --auth-component-position: auto;
-
-  @media (min-width: 1200px) {
+  --playground-width: 95%;
+  --section-row-gap: 8em;
+  
+  @media (max-height: 800px) {
+    --section-row-gap: 2em;
+  }
+  
+  @media (min-width: 1400px) {
     /* For the desktop devices, center auth component to the center, as there might be more space available */
     --auth-component-position: center;
   }
@@ -10,11 +16,16 @@
   @media (max-width: 1650px) {
     --auth-component-distribution: auto;
   }
+  
+
+  @media (max-width: 1400px) {
+    --playground-width: 100%;
+  }
 }
 
 .link {
   color: #2222ff;
-  
+
   &:hover {
     text-decoration: underline;
   }
@@ -32,111 +43,118 @@
   margin-bottom: 0.5rem;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr var(--auth-component-distribution);
-  grid-template-rows: 1fr 1fr;
-  column-gap: 1em;
-  row-gap: 0.5em;
-  font-size: large;
+.main-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  /* & .introduction {} */
+  & .container {
+    display: grid;
+    grid-template-columns: 1fr var(--auth-component-distribution);
+    grid-template-rows: auto auto;
+    column-gap: 1em;
+    row-gap: var(--section-row-gap);
+    font-size: large;
+    max-width: var(--playground-width);
 
-  & .custom-section {
+    /* & .introduction {} */
 
-    & .custom-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr;
+    & .custom-section {
 
-      & .templates-section {
+      & .custom-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
 
-        & .centered-container {
+        & .templates-section {
+
+          & .centered-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            & .templates-form {
+
+              & label {
+                display: block;
+                margin-bottom: 0.2rem;
+
+                & input {
+                  margin-right: 0.5rem;
+                }
+              }
+            }
+          }
+        }
+
+        & .customized-colors-section {
           display: flex;
           justify-content: center;
           align-items: center;
           flex-direction: column;
 
-          & .templates-form {
+          & .customized-colors-form {
 
-            & label {
-              display: block;
+            & button {
+              margin-top: 0.5rem;
+              padding: .5em 1em;
+              color: #fff;
+              border: none;
+              border-radius: 8px;
+              font-size: 1rem;
+              cursor: pointer;
+              max-width: 6rem;
+            }
+
+            & .apply-button {
+              background-color: #3498db;
+            }
+
+            & .random-button {
+              background-color: #ff6fff;
+            }
+
+
+            & .color-input-container {
               margin-bottom: 0.2rem;
+              display: flex;
+              align-items: center;
 
               & input {
-                margin-right: 0.5rem;
+                max-width: 100px;
+                margin-left: 5px;
+                border-radius: .25rem;
+                outline: none;
+                font-size: 1rem;
+                border: .1rem solid #9c9c9c;
+                background-color: #e8e4ec;
+                transition: border-color .2s, box-shadow .2s;
+                height: 1.5rem;
+
+                &:focus {
+                  border-color: #3b82f6;
+                  box-shadow: 0 0 0 0.125rem rgba(59, 130, 246, 0.25);
+                }
               }
+
             }
+
           }
         }
       }
 
-      & .customized-colors-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
 
-        & .customized-colors-form {
-
-          & button {
-            margin-top: 0.5rem;
-            padding: .5em 1em;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            max-width: 6rem;
-          }
-
-          & .apply-button {
-            background-color: #3498db;
-          }
-
-          & .random-button {
-            background-color: #ff6fff;
-          }
-
-
-          & .color-input-container {
-            margin-bottom: 0.2rem;
-            display: flex;
-            align-items: center;
-
-            & input {
-              max-width: 100px;
-              margin-left: 5px;
-              border-radius: .25rem;
-              outline: none;
-              font-size: 1rem;
-              border: .1rem solid #9c9c9c;
-              background-color: #e8e4ec;
-              transition: border-color .2s, box-shadow .2s;
-              height: 1.5rem;
-
-              &:focus {
-                border-color: #3b82f6;
-                box-shadow: 0 0 0 0.125rem rgba(59, 130, 246, 0.25);
-              }
-            }
-
-          }
-
-        }
-      }
     }
 
+    &>.main-component {
+      grid-column-end: span 2;
+      grid-row-end: span 2;
+      grid-column-start: 2;
+      grid-row-start: 1;
+      justify-self: var(--auth-component-position);
+      align-self: var(--auth-component-position);
+    }
 
   }
-
-  &>.main-component {
-    grid-column-end: span 2;
-    grid-row-end: span 2;
-    grid-column-start: 2;
-    grid-row-start: 1;
-    justify-self: var(--auth-component-position);
-    align-self: var(--auth-component-position);
-  }
-
 }

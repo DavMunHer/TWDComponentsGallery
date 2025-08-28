@@ -1,57 +1,64 @@
-<section class="container">
-  <article class="introduction">
-    <h2 class="section-title">Auth Playground</h2>
-    <p>Welcome to the Playground Component. Within this section, you have the opportunity to modify and personalize the
-      various customizable properties of the component. For this specific component, you can modify the theme template to
-      some predefined templates or you could also define your own colors for each of the different elements from the component itself.
-      This can all be modified in the <a class="link" [href]="'/components/auth/playground#custom-section'">Customize</a> section
-    </p>
-  </article>
-  <section id="custom-section" class="custom-section">
-    <h2 class="section-title">Customize</h2>
-    <div class="custom-container">
-      <section class="templates-section">
-        <h3 class="subsection-title">Provided templates</h3>
-        <div class="centered-container">
-          <form class="templates-form">
-            <label for="classicB&W">
-              <input type="radio" name="template" id="classicB&W" value="classicB&W" checked>ClassicB&W
-            </label>
-            <label for="neoViolet">
-              <input type="radio" name="template" id="neoViolet" value="neoViolet">NeoViolet
-            </label>
-            <label for="custom">
-              <input type="radio" name="template" id="custom" value="custom">Custom
-            </label>
-          </form>
-        </div>
+<section class="main-section">
+  <div class="container">
+    <article class="introduction">
+      <h2 class="section-title">Auth Playground</h2>
+      <p>Welcome to the Playground Component. Within this section, you have the opportunity to modify and personalize
+        the
+        various customizable properties of the component. For this specific component, you can modify the theme template
+        to
+        some predefined templates or you could also define your own colors for each of the different elements from the
+        component itself.
+        This can all be modified in the <a class="link"
+          [href]="'/components/auth/playground#custom-section'">Customize</a> section
+      </p>
+    </article>
+    <section id="custom-section" class="custom-section">
+      <h2 class="section-title">Customize</h2>
+      <div class="custom-container">
+        <section class="templates-section">
+          <h3 class="subsection-title">Provided templates</h3>
+          <div class="centered-container">
+            <form class="templates-form">
+              <label for="classicB&W">
+                <input type="radio" name="template" id="classicB&W" value="classicB&W" checked>ClassicB&W
+              </label>
+              <label for="neoViolet">
+                <input type="radio" name="template" id="neoViolet" value="neoViolet">NeoViolet
+              </label>
+              <label for="custom">
+                <input type="radio" name="template" id="custom" value="custom">Custom
+              </label>
+            </form>
+          </div>
 
-      </section>
-      <section class="customized-colors-section">
-        <h3 class="subsection-title">Customized colors</h3>
-        <form class="customized-colors-form">
-          <div class="color-input-container">
-            <label for="primaryColor">Primary: </label>
-            <input type="text" maxlength="7" id="primaryColor">
-          </div>
-          <div class="color-input-container">
-            <label for="SecondaryColor">Secondary: </label>
-            <input type="text" maxlength="7" id="secondaryColor">
-          </div>
-          <div class="color-input-container">
-            <label for="inputsColor">Inputs: </label>
-            <input type="text" maxlength="7" id="inputsColor">
-          </div>
-          <button class="apply-button">Apply</button>
-          <button class="random-button">Random</button>
-        </form>
-      </section>
+        </section>
+        <section class="customized-colors-section">
+          <h3 class="subsection-title">Customized colors</h3>
+          <form class="customized-colors-form">
+            <div class="color-input-container">
+              <label for="primaryColor">Primary: </label>
+              <input type="text" maxlength="7" id="primaryColor">
+            </div>
+            <div class="color-input-container">
+              <label for="SecondaryColor">Secondary: </label>
+              <input type="text" maxlength="7" id="secondaryColor">
+            </div>
+            <div class="color-input-container">
+              <label for="inputsColor">Inputs: </label>
+              <input type="text" maxlength="7" id="inputsColor">
+            </div>
+            <button class="apply-button">Apply</button>
+            <button class="random-button">Random</button>
+          </form>
+        </section>
+      </div>
+    </section>
+    <div class="main-component">
+      @if (componentVisible()) {
+      <app-auth [theme]="selectedTemplate()" [primary]="customColors().primaryColor"
+        [secundary]="customColors().secondaryColor" [input]="customColors().inputColor"></app-auth>
+      }
     </div>
-  </section>
-  <div class="main-component">
-    @if (componentVisible()) {
-    <app-auth [theme]="selectedTemplate()" [primary]="customColors().primaryColor"
-      [secundary]="customColors().secondaryColor" [input]="customColors().inputColor"></app-auth>
-    }
   </div>
+
 </section>
