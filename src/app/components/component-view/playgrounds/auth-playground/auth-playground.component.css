@@ -1,12 +1,11 @@
 :host {
   --auth-component-distribution: 1fr;
-  --auth-component-position: auto;
   --playground-width: 95%;
   --section-row-gap: 8em;
 
   --grid-rows: 2;
   --grid-rows-display: repeat(var(--grid-rows), auto);
-  --grid-columns-display: 1fr var(--auth-component-distribution); 
+  --grid-columns-display: 1fr var(--auth-component-distribution);
 
 
   --component-column-start: 2;
@@ -16,7 +15,7 @@
 
   --component-width: 800px;
 
-  
+
   @media (max-height: 800px) {
     --section-row-gap: 2em;
   }
@@ -25,11 +24,6 @@
     /* For the desktop devices, center auth component to the center, as there might be more space available */
     --auth-component-position: center;
   }
-
-  @media (max-width: 1650px) {
-    --auth-component-distribution: auto;
-  }
-  
 
   @media (max-width: 1400px) {
     --playground-width: 80%;
@@ -76,6 +70,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
 
   & .container {
     display: grid;
@@ -153,7 +148,7 @@
               & .apply-button {
                 background-color: #3498db;
               }
-              
+
               & .random-button {
                 text-align: center;
                 background-color: #ff6fff;
@@ -192,17 +187,18 @@
 
     }
 
-    &>.main-component {
+    & .main-component {
       grid-column-start: var(--component-column-start);
       grid-column-end: var(--component-column-end);
       grid-row-start: var(--component-row-start);
       grid-row-end: var(--component-row-end);
-      justify-self: var(--auth-component-position);
-      align-self: var(--auth-component-position);
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       /* Predifining component width and height for avoiding layout shift */
-      height: 500px;
-      width: var(--component-width);
+      min-height: 500px;
+      min-width: var(--component-width);
     }
 
   }
