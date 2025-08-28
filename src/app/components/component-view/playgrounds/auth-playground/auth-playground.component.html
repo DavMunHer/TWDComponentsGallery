@@ -47,10 +47,12 @@
               <label for="inputsColor">Inputs: </label>
               <input formControlName="inputColor" type="text" maxlength="7" id="inputsColor">
             </div>
-            <div class="custom-buttons-container">
-              <button (click)="changeCustomColors()" class="apply-button">Apply</button>
-              <button (click)="randomizeCustomColors()" class="random-button">Random</button>
-            </div>
+            @if (selectedTemplate() == 'custom') {
+              <div class="custom-buttons-container">
+                <button (click)="changeCustomColors()" class="apply-button">Apply</button>
+                <button (click)="randomizeCustomColors()" class="random-button">Random</button>
+              </div>
+            }
           </form>
         </section>
       </div>
