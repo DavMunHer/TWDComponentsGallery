@@ -24,14 +24,20 @@ export class AuthPlaygroundComponent implements OnInit {
     inputColor: new FormControl('#e5e7eb', { nonNullable: true }),
   });
 
+  protected templateForm = new FormGroup({
+    selectedTemplate: new FormControl<'classicB&W' | 'neoViolet' | 'custom'>('classicB&W', {nonNullable: true})
+  });
+
   protected customColors = signal(this.customColorsForm.getRawValue());
 
   ngOnInit(): void {
     this.customColorsForm.disable(); // Form will only be enabled when the template is customized
   }
 
-  protected onTemplateChange(newTemplate: 'classicB&W' | 'neoViolet' | 'custom') {
+  protected onTemplateChange() {
     this.componentVisible.set(false);
+    const newTemplate = this.templateForm.controls.selectedTemplate.getRawValue();
+
 
     if (newTemplate === 'custom') {
       this.customColorsForm.enable();

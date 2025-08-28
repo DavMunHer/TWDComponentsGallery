@@ -18,15 +18,15 @@
         <section class="templates-section">
           <h3 class="subsection-title">Provided templates</h3>
           <div class="centered-container">
-            <form class="templates-form">
+            <form [formGroup]="templateForm" (change)="onTemplateChange()" class="templates-form">
               <label for="classicB&W">
-                <input type="radio" name="template" id="classicB&W" value="classicB&W" checked>ClassicB&W
+                <input type="radio" formControlName="selectedTemplate" name="selectedTemplate" id="classicB&W" value="classicB&W" checked>ClassicB&W
               </label>
               <label for="neoViolet">
-                <input type="radio" name="template" id="neoViolet" value="neoViolet">NeoViolet
+                <input type="radio" formControlName="selectedTemplate" name="selectedTemplate" id="neoViolet" value="neoViolet">NeoViolet
               </label>
               <label for="custom">
-                <input type="radio" name="template" id="custom" value="custom">Custom
+                <input type="radio" formControlName="selectedTemplate" name="selectedTemplate" id="custom" value="custom">Custom
               </label>
             </form>
           </div>
