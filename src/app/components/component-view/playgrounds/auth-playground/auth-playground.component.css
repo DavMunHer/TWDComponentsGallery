@@ -14,6 +14,8 @@
   --component-row-start: 1;
   --component-row-end: 3;
 
+  --component-width: 800px;
+
   
   @media (max-height: 800px) {
     --section-row-gap: 2em;
@@ -39,6 +41,14 @@
     --component-column-end: 2;
     --component-row-start: 3;
     --component-row-end: 4;
+  }
+
+  @media (max-width: 800px) {
+    --component-width: 400px;
+  }
+
+  @media (max-width:450px) {
+    --component-width: 350px;
   }
 }
 
@@ -188,6 +198,10 @@
       grid-row-end: var(--component-row-end);
       justify-self: var(--auth-component-position);
       align-self: var(--auth-component-position);
+
+      /* Predifining component width and height for avoiding layout shift */
+      height: 500px;
+      width: var(--component-width);
     }
 
   }
