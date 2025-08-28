@@ -7,6 +7,9 @@
   --grid-rows-display: repeat(var(--grid-rows), auto);
   --grid-columns-display: 1fr var(--auth-component-distribution);
 
+  --custom-section-grid-rows-display: 1fr;
+  --custom-section-grid-columns-display: 1fr 1fr;
+
 
   --component-column-start: 2;
   --component-column-end: 3;
@@ -44,6 +47,9 @@
   @media (max-width:450px) {
     --component-width: 350px;
     --playground-width: 100%;
+
+    --custom-section-grid-rows-display: auto 1fr;
+    --custom-section-grid-columns-display: 1fr;
   }
 }
 
@@ -98,8 +104,9 @@
 
       & .custom-container {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
+        grid-template-columns: var(--custom-section-grid-columns-display);
+        grid-template-rows: var(--custom-section-grid-rows-display);
+        row-gap: 2rem;
 
         & .templates-section {
 
