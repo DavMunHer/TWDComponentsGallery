@@ -7,7 +7,7 @@
   @media (max-height: 800px) {
     --section-row-gap: 2em;
   }
-  
+
   @media (min-width: 1400px) {
     /* For the desktop devices, center auth component to the center, as there might be more space available */
     --auth-component-position: center;
@@ -98,21 +98,27 @@
 
             & button {
               margin-top: 0.5rem;
-              padding: .5em 1em;
+              padding: 0.4em 0.8em;
               color: #fff;
               border: none;
               border-radius: 8px;
               font-size: 1rem;
               cursor: pointer;
-              max-width: 6rem;
+              min-width: 5rem;
             }
 
-            & .apply-button {
-              background-color: #3498db;
-            }
+            & .custom-buttons-container {
+              display: flex;
+              justify-content: space-between;
 
-            & .random-button {
-              background-color: #ff6fff;
+              & .apply-button {
+                background-color: #3498db;
+              }
+              
+              & .random-button {
+                text-align: center;
+                background-color: #ff6fff;
+              }
             }
 
 
