@@ -34,22 +34,22 @@
         </section>
         <section class="customized-colors-section">
           <h3 class="subsection-title">Customized colors</h3>
-          <form class="customized-colors-form">
+          <form [formGroup]="customColorsForm" class="customized-colors-form">
             <div class="color-input-container">
               <label for="primaryColor">Primary: </label>
-              <input type="text" maxlength="7" id="primaryColor">
+              <input formControlName="primaryColor" type="text" maxlength="7" id="primaryColor">
             </div>
             <div class="color-input-container">
               <label for="SecondaryColor">Secondary: </label>
-              <input type="text" maxlength="7" id="secondaryColor">
+              <input formControlName="secondaryColor" type="text" maxlength="7" id="secondaryColor">
             </div>
             <div class="color-input-container">
               <label for="inputsColor">Inputs: </label>
-              <input type="text" maxlength="7" id="inputsColor">
+              <input formControlName="inputColor" type="text" maxlength="7" id="inputsColor">
             </div>
             <div class="custom-buttons-container">
-              <button class="apply-button">Apply</button>
-              <button class="random-button">Random</button>
+              <button (click)="changeCustomColors()" class="apply-button">Apply</button>
+              <button (click)="randomizeCustomColors()" class="random-button">Random</button>
             </div>
           </form>
         </section>
