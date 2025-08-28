@@ -12,6 +12,14 @@
   }
 }
 
+.link {
+  color: #2222ff;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .section-title {
   text-align: center;
   font-size: x-large;
