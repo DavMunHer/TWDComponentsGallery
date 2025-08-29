@@ -36,15 +36,15 @@
           <form [formGroup]="customColorsForm" class="customized-colors-form">
             <div class="color-input-container">
               <label for="primaryColor">Primary: </label>
-              <input formControlName="primaryColor" type="text" maxlength="7" id="primaryColor">
+              <input formControlName="primaryColor" (keypress)="allowHex($event)" type="text" maxlength="7" id="primaryColor">
             </div>
             <div class="color-input-container">
               <label for="SecondaryColor">Secondary: </label>
-              <input formControlName="secondaryColor" type="text" maxlength="7" id="secondaryColor">
+              <input formControlName="secondaryColor" (keypress)="allowHex($event)" type="text" maxlength="7" id="secondaryColor">
             </div>
             <div class="color-input-container">
               <label for="inputsColor">Inputs: </label>
-              <input formControlName="inputColor" type="text" maxlength="7" id="inputsColor">
+              <input formControlName="inputColor" (keypress)="allowHex($event)" type="text" maxlength="7" id="inputsColor">
             </div>
             @if (selectedTemplate() == 'custom') {
               <div class="custom-buttons-container">

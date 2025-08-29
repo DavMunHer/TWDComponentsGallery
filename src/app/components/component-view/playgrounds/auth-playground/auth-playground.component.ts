@@ -41,7 +41,8 @@ export class AuthPlaygroundComponent implements OnInit {
 
   protected onTemplateChange() {
     this.componentVisible.set(false);
-    const newTemplate = this.templateForm.controls.selectedTemplate.getRawValue();
+    const newTemplate =
+      this.templateForm.controls.selectedTemplate.getRawValue();
 
     switch (newTemplate) {
       case 'classicB&W':
@@ -106,6 +107,20 @@ export class AuthPlaygroundComponent implements OnInit {
     });
     this.customColors.set(this.customColorsForm.getRawValue());
     setTimeout(() => this.componentVisible.set(true), 0);
+  }
+
+  protected allowHex(event: KeyboardEvent) {
+    /* Forcing the input to start with # */
+    const inputTag = event.target as HTMLInputElement;
+    if (!inputTag.value.startsWith('#')) {
+      inputTag.value = '#' + inputTag.value.replace(/^#+/, '');
+    }
+    
+    /* Only write when key pressed is between 0-F */
+    const allowed = /[0-9a-fA-F]/;
+    if (!allowed.test(event.key)) {
+      event.preventDefault();
+    }
   }
 
   protected changeCustomColors() {
