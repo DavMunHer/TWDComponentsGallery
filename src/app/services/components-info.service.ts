@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ComponentInfo } from '../interfaces/component-info';
 import { ComponentMinInfo } from '../interfaces/component-min-info';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +18,7 @@ export class ComponentsInfoService {
       packageName: '@triwebdev/auth-component',
       npmPackageUrl: 'https://www.npmjs.com/package/@triwebdev/auth-component',
       gitHubUrl: 'https://github.com/TriWebDev/authLib-workspace',
+      docsUrl: 'https://unpkg.com/@triwebdev/auth-component/README.md',
     },
     {
       name: 'Code Container',
@@ -26,6 +29,7 @@ export class ComponentsInfoService {
       packageName: '',
       npmPackageUrl: '',
       gitHubUrl: '',
+      docsUrl: '',
     },
     // {
     //   name: 'Whatever',
@@ -37,17 +41,22 @@ export class ComponentsInfoService {
     // },
   ];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   public getComponentsInfo() {
     return this.componentsInfo;
   }
 
   public getComponentsMinInfo(): ComponentMinInfo[] {
-    return this.componentsInfo.map(({ name, componentNameInUrl }) => ({ name, componentNameInUrl }));
+    return this.componentsInfo.map(({ name, componentNameInUrl }) => ({
+      name,
+      componentNameInUrl,
+    }));
   }
 
-  public getComponentMinInfo(componentNameInUrl: string): ComponentMinInfo | undefined {
+  public getComponentMinInfo(
+    componentNameInUrl: string
+  ): ComponentMinInfo | undefined {
     const componentsMinInfo = this.getComponentsMinInfo();
 
     return componentsMinInfo.find((component) => {
@@ -59,7 +68,15 @@ export class ComponentsInfoService {
     const componentsInfo = this.getComponentsInfo();
 
     return componentsInfo.find((component) => {
-      return component.componentNameInUrl == componentNameInUrl
+      return component.componentNameInUrl == componentNameInUrl;
     })!;
+  }
+
+  public getComponentDocs(componentNameInUrl: string): Observable<string> {
+    const component = this.getComponentInfo(componentNameInUrl);
+    if (!component) {
+      throw new Error('Component not found');
+    }
+    return this.http.get(component.docsUrl, {responseType: 'text'});
   }
 }

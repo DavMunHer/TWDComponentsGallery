@@ -8,13 +8,14 @@ import { ComponentsInfoService } from '../../services/components-info.service';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { ResponsiveMenuComponent } from './responsive-menu/responsive-menu.component';
 import { ClickOutsideDirective } from '../../directives/click-outside.directive';
+import { DynamicDocsComponent } from './docs/dynamic-docs/dynamic-docs.component';
 
 @Component({
   selector: 'app-component-view',
   imports: [
     ClickOutsideDirective,
     SidebarComponent, ComponentExplorerComponent,
-    AuthDocsComponent, AuthPlaygroundComponent,
+    DynamicDocsComponent, AuthPlaygroundComponent,
     NavbarComponent, ResponsiveMenuComponent
   ],
   templateUrl: './component-view.component.html',

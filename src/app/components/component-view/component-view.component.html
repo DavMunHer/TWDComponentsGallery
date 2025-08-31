@@ -12,11 +12,7 @@
       <div class="component-info">
         @if (showedInfo() == 'docs') {
         <section class="docs">
-          @switch (componentName()) {
-            @case ('auth') {
-              <!-- <auth-docs /> -->
-            }
-          }
+          <dynamic-docs />
         </section>
         } @else {
         <section class="playground">
