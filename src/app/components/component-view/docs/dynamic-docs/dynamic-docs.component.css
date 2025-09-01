@@ -1,9 +1,22 @@
+:host {
+    --content-width: 80%;
+
+    @media (max-width: 1200px) {
+        --content-width: 90%;
+    }
+
+    @media (max-width: 450px) {
+        --content-width: 95%;
+    }
+}
+
 .centered-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100dvw;
 
     & .markdown-container {
-        width: 80%;
+        width: var(--content-width);
     }
 }
