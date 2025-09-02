@@ -26,7 +26,6 @@
         --sidebar-text-color: #eee;
 
         --active-component-background: color-mix(in srgb, #06e4 90%, #fff 10%);
-
     }
 }
 
@@ -36,6 +35,23 @@
     & .right-content {
         flex: 1;
         margin-left: var(--left-margin);
+
+        & .blur-container {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            display: block;
+            z-index: 3;
+            visibility: hidden;
+            transition: background-color 0.3s;
+
+            &.active {
+                visibility: visible;
+                background-color: #000a;
+            }
+        }
 
         & .component-explorer-container {
             margin-top: 1em;

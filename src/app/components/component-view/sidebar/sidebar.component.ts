@@ -4,11 +4,10 @@ import { CapitalizePipe } from '../../../pipes/capitalize.pipe';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ComponentMinInfo } from '../../../interfaces/component-min-info';
 import { NgClass } from '@angular/common';
-import { ClickOutsideDirective } from '../../../directives/click-outside.directive';
 
 @Component({
   selector: 'components-sidebar',
-  imports: [CapitalizePipe, RouterLink, NgClass, ClickOutsideDirective],
+  imports: [CapitalizePipe, RouterLink, NgClass],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
