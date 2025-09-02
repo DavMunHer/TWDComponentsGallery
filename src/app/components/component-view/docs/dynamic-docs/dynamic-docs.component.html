@@ -1,3 +1,9 @@
-<div class="centered-container">
-    <markdown class="markdown-container" [data]="docs()" />
-</div>
+@if (loading()) {
+    <div class="loader-container">
+            <basic-loader style="--loader-dimensions: 50px;--animation-speed:0.5s;" ></basic-loader>
+    </div>
+} @else {
+    <div class="centered-container">
+        <markdown class="markdown-container" [data]="docs()" />
+    </div>
+}

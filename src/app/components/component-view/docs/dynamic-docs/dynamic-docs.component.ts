@@ -1,11 +1,12 @@
-import { Component, inject, OnInit, signal, ViewEncapsulation } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ComponentsInfoService } from '../../../../services/components-info.service';
 import { MarkdownComponent } from 'ngx-markdown';
+import { LoaderComponent } from '../../../utils/loader/loader.component';
 
 @Component({
   selector: 'dynamic-docs',
-  imports: [MarkdownComponent],
+  imports: [MarkdownComponent, LoaderComponent],
   templateUrl: './dynamic-docs.component.html',
   styleUrl: './dynamic-docs.component.css',
 })

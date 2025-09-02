@@ -1,0 +1,28 @@
+:host {
+    --loader-dimensions: 30px;
+    --animation-speed: 1s;
+    --loader-border: calc(var(--loader-dimensions) * 0.067);
+}
+
+.loader {
+    border-width: var(--loader-border, 2px);
+    border-color: #1112;
+    border-style: solid;
+    border-top-width: calc(var(--loader-border, 2px) + 1px);
+    border-top-color: #3498db;
+    border-radius: 50%;
+    height: var(--loader-dimensions);
+    aspect-ratio: 1/1;
+    animation: loading var(--animation-speed) linear infinite;
+}
+
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
