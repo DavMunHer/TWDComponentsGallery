@@ -5,6 +5,7 @@
     <components-sidebar (clickOutside)="hideSidebar($event)" [sidebarCurrentStatus]="sidebarStatus()" />
   </div>
   <div class="right-content">
+    <div class="blur-container" [ngClass]="{'active':sidebarStatus() == 'enabled'}"></div>
     <header class="component-explorer-container">
       <component-explorer />
     </header>
