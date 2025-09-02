@@ -6,5 +6,6 @@ export interface ComponentInfo {
     releasedDate: string,
     packageName: string,
     npmPackageUrl: string,
-    gitHubUrl: string
+    gitHubUrl: string,
+    docsUrl: string
 }
