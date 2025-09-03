@@ -79,6 +79,12 @@
   align-items: center;
   overflow: scroll;
 
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   & .container {
     display: grid;
     grid-template-columns: var(--grid-columns-display);

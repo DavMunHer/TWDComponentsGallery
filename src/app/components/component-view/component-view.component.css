@@ -43,7 +43,7 @@
             bottom: 0;
             position: absolute;
             display: block;
-            z-index: 3;
+            z-index: 5;
             visibility: hidden;
             transition: background-color 0.3s;
 

@@ -12,14 +12,19 @@
     left: var(--sidebar-position);
     height: calc(100vh - var(--navbar-height));
     width: var(--sidebar-container-width);
-    overflow: scroll;
     border-radius: var(--sidebar-border-radius);
     background-color: var(--sidebar-background);
     color: var(--sidebar-text-color);
-    z-index: 1000;
-
+    z-index: 6;
+    
     transition: left 0.3s ease;
+    overflow: scroll;
+    scrollbar-width: none;
 
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    
     &.active {
         left: 0;
     }
