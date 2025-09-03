@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { ComponentsInfoService } from '../../../services/components-info.service';
 import { CapitalizePipe } from '../../../pipes/capitalize.pipe';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -18,6 +18,8 @@ export class SidebarComponent implements OnInit {
   private route = inject(ActivatedRoute);
   protected selectedComponentNameInUrl = signal<string>(this.route.snapshot.params['name']);
 
+  public sidebarCurrentStatus = input.required<'enabled' | 'disabled'>();
+
   ngOnInit(): void {
     this.componentsInfo = this.componentsService.getComponentsMinInfo();
     
@@ -26,6 +28,7 @@ export class SidebarComponent implements OnInit {
       this.updateSelectedComponent();
     });
   }
+
 
   private updateSelectedComponent() {
     this.selectedComponentNameInUrl.set(this.route.snapshot.params['name']);

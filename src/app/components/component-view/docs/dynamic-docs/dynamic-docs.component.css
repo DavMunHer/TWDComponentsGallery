@@ -1,0 +1,57 @@
+:host {
+
+    &::ng-deep .markdown-container blockquote {
+        border-left: 4px solid #d0d7de;
+        padding: 0.5em 1em;
+        margin: 1em 0;
+        color: #333;
+        background-color: #f6f8fa;
+        border-radius: 6px;
+    }
+
+    &::ng-deep .markdown-container a {
+        color: #33f;
+    }
+
+    &::ng-deep .markdown-container a:hover {
+        text-decoration: underline;
+    }
+
+    --sidebar-width: 200px;
+
+    --container-width: calc(100dvw - var(--sidebar-width));
+
+    --content-width: 80%;
+
+    @media (max-width: 1200px) {
+        --container-width: 100vw;
+        --content-width: 90%;
+    }
+
+    @media (max-width: 450px) {
+        --content-width: 90dvw;
+    }
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .subcontainer {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--container-width);
+
+    & .markdown-container {
+        width: var(--content-width);
+    }
+}

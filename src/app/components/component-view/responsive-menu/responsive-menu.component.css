@@ -1,0 +1,36 @@
+:host {
+    --navbar-color: rgba(35, 37, 43, 1);
+    --text-color: #fff;
+
+    --responsive-display: none;
+
+    @media (max-width: 1200px) {
+        --responsive-display: flex;
+    }
+}
+
+.menu-container {
+    display: var(--responsive-display);
+    background-color: var(--navbar-color);
+    justify-content: center;
+    align-items: center;
+    padding-block: 10px;
+    color: var(--text-color);
+
+    & .menu-content {
+        display: flex;
+        column-gap: 2px;
+        padding-inline: 15px;
+        padding-block: 5px;
+        border-radius: 20px;
+        user-select: none;
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--navbar-color) 90%, #fff 10%);
+        }
+
+        & .menu-icon {
+            width: 20px;
+        }
+    }
+}
