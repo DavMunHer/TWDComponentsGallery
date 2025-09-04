@@ -1,0 +1,30 @@
+:host {
+
+    &::ng-deep carousel .content {
+        /* Quick fix, will not be needed in future versions of the carousel component */
+        box-sizing: content-box;
+    }
+}
+
+
+.main-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+
+    .container {
+        display: grid;
+        grid-template-rows: repeat(auto, 3);
+
+        .introduction {
+
+        }
+
+        .main-component {
+            width: 800px;
+        }
+    }
+
+
+}

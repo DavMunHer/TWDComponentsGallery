@@ -5,6 +5,7 @@ import { provideMarkdown } from 'ngx-markdown';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAuth } from '@triwebdev/auth-component';
+import { provideCarousel } from '@triwebdev/carousel-component';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
       apiUrl: 'localhost:300/dummyExample',
       loginRedirectionUrl: ''
     }),
-    provideMarkdown()
+    provideMarkdown(),
+    provideCarousel({firstMoveDelayMultiplier: 1, msPerMove: 2000})
   ]
 };
