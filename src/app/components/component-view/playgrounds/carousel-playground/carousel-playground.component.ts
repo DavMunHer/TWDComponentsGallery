@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import {CarouselComponent} from '@triwebdev/carousel-component'
 
 @Component({
@@ -8,5 +8,24 @@ import {CarouselComponent} from '@triwebdev/carousel-component'
   styleUrl: './carousel-playground.component.css'
 })
 export class CarouselPlaygroundComponent {
+  protected cards = signal([
+    {
 
+    },
+    {
+
+    },
+    {
+
+    },
+    {
+
+    },
+    {
+
+    },
+    {
+      
+    }
+  ])
 }
