@@ -23,22 +23,22 @@
             <div class="custom-container">
                 <section class="max-cards-section">
                     <h3 class="subsection-title">Force limit cards number</h3>
-                    <form>
+                    <form [formGroup]="maxCardsForm">
                         <div class="number-input-container">
                             <label for="maxCardsInput">MaxCards: </label>
-                            <input id="maxCardsInput" type="number">
+                            <input formControlName="maxCards" name="maxCards" id="maxCardsInput" type="number">
                         </div>
                     </form>
                 </section>
                 <section class="card-template-section">
                     <h3 class="subsection-title">Implementing own cards</h3>
-                    <form>
+                    <form [formGroup]="cardTemplateForm">
                         <div class="radio-input-container">
-                            <input name="selected-card" id="templateCard" type="radio">
+                            <input formControlName="selectedTemplate" value="template" id="templateCard" type="radio">
                             <label for="templateCard">Template Card</label>
                         </div>
                         <div class="radio-input-container">
-                            <input name="selected-card" id="customCard" type="radio">
+                            <input formControlName="selectedTemplate" value="custom" id="customCard" type="radio">
                             <label for="customCard">Custom Card</label>
                         </div>
                     </form>
@@ -46,27 +46,27 @@
                 <section class="scroll-behavior-section">
                     <div class="scroll-option-container">
                         <h3 class="subsection-title">Scroll behavior</h3>
-                        <form>
+                        <form [formGroup]="scrollBehaviorForm">
                             <div class="radio-input-container">
-                                <input name="scroll-behavior" id="manualScroll" type="radio">
+                                <input formControlName="selectedBehavior" value="manual" id="manualScroll" type="radio">
                                 <label for="manualScroll">Manual Only</label>
                             </div>
                             <div class="radio-input-container">
-                                <input name="scroll-behavior" id="autoScroll" type="radio">
+                                <input formControlName="selectedBehavior" value="auto" id="autoScroll" type="radio">
                                 <label for="autoScroll">Auto</label>
                             </div>
                         </form>
                     </div>
                     <div class="auto-scroll-container">
                         <h3 class="subsection-title">Auto scroll config</h3>
-                        <form>
+                        <form [formGroup]="autoScrollConfigForm">
                             <div class="number-input-container">
                                 <label for="delayMultiplier">FirstMoveDelayMultiplier: </label>
-                                <input id="delayMultiplier" type="number">
+                                <input formControlName="firstMoveDelayMultiplier" id="delayMultiplier" type="number">
                             </div>
                             <div class="number-input-container">
                                 <label for="msPerMove">MsPerMove: </label>
-                                <input id="msPerMove" type="number">
+                                <input formControlName="msPerMove" id="msPerMove" type="number">
                             </div>
                         </form>
                     </div>
