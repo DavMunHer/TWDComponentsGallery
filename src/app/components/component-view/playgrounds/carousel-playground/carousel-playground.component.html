@@ -1,8 +1,22 @@
 <section class="main-section">
     <div class="container">
         <article class="introduction">
-            <h2 class="section-title">Carousel playground</h2>
-            <p>The carousel component is a very reusable</p>
+            <h2 class="section-title">Carousel Playground</h2>
+            <p>Welcome to the Carousel Playground. Within this section, you have the opportunity to modify and
+                personalize the various customizable properties of the component.
+            </p>
+                
+                <p>For this specific component, you can
+                set the maximum cards you want the carousel to show and adjust the scroll behavior if needed.
+                For adjusting the scroll behavior (specifying the msPerMove and FirstMoveDelayMultiplier), you would
+                have to add a provider in your app.config.ts file.
+                Please note that the cards that this carousel uses can be customized with whichever card you need, which
+                makes the component very reusable.
+                </p>
+                <p>
+                    For more details on how to implement this component to your project, please refer to the <a class="link"
+                    [routerLink]="'/components/carousel/docs'">Documentation</a> tab.
+                </p>
         </article>
         <section class="custom-section">
             <h2 class="section-title">Customize</h2>
@@ -10,7 +24,7 @@
 
             </div>
         </section>
-        
+
         <div class="main-component">
             <carousel [cards]="cards()">
             </carousel>
