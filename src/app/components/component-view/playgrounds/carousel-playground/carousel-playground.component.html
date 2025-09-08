@@ -5,23 +5,72 @@
             <p>Welcome to the Carousel Playground. Within this section, you have the opportunity to modify and
                 personalize the various customizable properties of the component.
             </p>
-                
-                <p>For this specific component, you can
+
+            <p>For this specific component, you can
                 set the maximum cards you want the carousel to show and adjust the scroll behavior if needed.
                 For adjusting the scroll behavior (specifying the msPerMove and FirstMoveDelayMultiplier), you would
                 have to add a provider in your app.config.ts file.
                 Please note that the cards that this carousel uses can be customized with whichever card you need, which
                 makes the component very reusable.
-                </p>
-                <p>
-                    For more details on how to implement this component to your project, please refer to the <a class="link"
+            </p>
+            <p>
+                For more details on how to implement this component to your project, please refer to the <a class="link"
                     [routerLink]="'/components/carousel/docs'">Documentation</a> tab.
-                </p>
+            </p>
         </article>
         <section class="custom-section">
             <h2 class="section-title">Customize</h2>
             <div class="custom-container">
-
+                <section class="max-cards-section">
+                    <h3 class="subsection-title">Force limit cards number</h3>
+                    <form>
+                        <div class="number-input-container">
+                            <label for="maxCardsInput">MaxCards: </label>
+                            <input id="maxCardsInput" type="number">
+                        </div>
+                    </form>
+                </section>
+                <section class="card-template-section">
+                    <h3 class="subsection-title">Implementing own cards</h3>
+                    <form>
+                        <div class="radio-input-container">
+                            <input name="selected-card" id="templateCard" type="radio">
+                            <label for="templateCard">Template Card</label>
+                        </div>
+                        <div class="radio-input-container">
+                            <input name="selected-card" id="customCard" type="radio">
+                            <label for="customCard">Custom Card</label>
+                        </div>
+                    </form>
+                </section>
+                <section class="scroll-behavior-section">
+                    <div class="scroll-option-container">
+                        <h3 class="subsection-title">Scroll behavior</h3>
+                        <form>
+                            <div class="radio-input-container">
+                                <input name="scroll-behavior" id="manualScroll" type="radio">
+                                <label for="manualScroll">Manual Only</label>
+                            </div>
+                            <div class="radio-input-container">
+                                <input name="scroll-behavior" id="autoScroll" type="radio">
+                                <label for="autoScroll">Auto</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="auto-scroll-container">
+                        <h3 class="subsection-title">Auto scroll config</h3>
+                        <form>
+                            <div class="number-input-container">
+                                <label for="delayMultiplier">FirstMoveDelayMultiplier: </label>
+                                <input id="delayMultiplier" type="number">
+                            </div>
+                            <div class="number-input-container">
+                                <label for="msPerMove">MsPerMove: </label>
+                                <input id="msPerMove" type="number">
+                            </div>
+                        </form>
+                    </div>
+                </section>
             </div>
         </section>
 
