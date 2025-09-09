@@ -95,6 +95,9 @@
 
         .main-component {
             max-width: 100vw;
+
+            /* Stablishing predifined height for avoiding layout shift */
+            min-height: 500px;
         }
     }
 }
