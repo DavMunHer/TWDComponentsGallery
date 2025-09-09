@@ -48,7 +48,8 @@
                         <h3 class="subsection-title">Scroll behavior</h3>
                         <form [formGroup]="scrollBehaviorForm">
                             <div class="radio-input-container">
-                                <input formControlName="selectedBehavior" value="manual-only" id="manualScroll" type="radio">
+                                <input formControlName="selectedBehavior" value="manual-only" id="manualScroll"
+                                    type="radio">
                                 <label for="manualScroll">Manual Only</label>
                             </div>
                             <div class="radio-input-container">
@@ -75,9 +76,15 @@
         </section>
 
         <div class="main-component">
-            @if (showCarousel()) {
-                <carousel [scrollBehavior]="scrollBehaviorSignal()" [maxShowedCards]="maxCardsSignal()" [cards]="cards()">
-                </carousel>
+            @if (showCarousel() && selectedTemplateSignal() == 'template') {
+            <carousel [scrollBehavior]="scrollBehaviorSignal()" [maxShowedCards]="maxCardsSignal()" [cards]="cards()">
+            </carousel>
+            } @else if(showCarousel() && selectedTemplateSignal() == 'custom') {
+            <carousel [scrollBehavior]="scrollBehaviorSignal()" [maxShowedCards]="maxCardsSignal()" [cards]="cards()">
+                <ng-template let-cardInfo>
+                    <custom-card [cardInfo]="cardInfo"></custom-card>
+                </ng-template>
+            </carousel>
             }
         </div>
     </div>
