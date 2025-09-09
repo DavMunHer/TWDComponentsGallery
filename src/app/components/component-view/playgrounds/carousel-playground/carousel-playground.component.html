@@ -48,7 +48,7 @@
                         <h3 class="subsection-title">Scroll behavior</h3>
                         <form [formGroup]="scrollBehaviorForm">
                             <div class="radio-input-container">
-                                <input formControlName="selectedBehavior" value="manual" id="manualScroll" type="radio">
+                                <input formControlName="selectedBehavior" value="manual-only" id="manualScroll" type="radio">
                                 <label for="manualScroll">Manual Only</label>
                             </div>
                             <div class="radio-input-container">
@@ -75,8 +75,10 @@
         </section>
 
         <div class="main-component">
-            <carousel [cards]="cards()">
-            </carousel>
+            @if (showCarousel()) {
+                <carousel [scrollBehavior]="scrollBehaviorSignal()" [maxShowedCards]="maxCardsSignal()" [cards]="cards()">
+                </carousel>
+            }
         </div>
     </div>
 </section>
