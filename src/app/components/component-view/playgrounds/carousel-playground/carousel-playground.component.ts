@@ -11,7 +11,13 @@ import { CustomCardComponent } from './custom-card/custom-card.component';
 
 @Component({
   selector: 'carousel-playground',
-  imports: [CarouselComponent, RouterLink, FormsModule, ReactiveFormsModule, CustomCardComponent],
+  imports: [
+    CarouselComponent,
+    RouterLink,
+    FormsModule,
+    ReactiveFormsModule,
+    CustomCardComponent,
+  ],
   templateUrl: './carousel-playground.component.html',
   styleUrl: './carousel-playground.component.css',
 })
@@ -78,10 +84,16 @@ export class CarouselPlaygroundComponent {
   );
 
   protected autoScrollConfigForm = new FormGroup({
-    firstMoveDelayMultiplier: new FormControl<number>(1.5, {
-      nonNullable: true,
-    }),
-    msPerMove: new FormControl<number>(2000, { nonNullable: true }),
+    firstMoveDelayMultiplier: new FormControl<number>(
+      { value: 1.5, disabled: true },
+      {
+        nonNullable: true,
+      }
+    ),
+    msPerMove: new FormControl<number>(
+      { value: 2000, disabled: true },
+      { nonNullable: true }
+    ),
   });
   protected autoScrollConfigSignal = signal<any>({
     firstMoveDelayMultiplier: 1.5,
