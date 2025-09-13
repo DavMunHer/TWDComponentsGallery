@@ -9,14 +9,16 @@ import { ResponsiveMenuComponent } from './responsive-menu/responsive-menu.compo
 import { ClickOutsideDirective } from '../../directives/click-outside.directive';
 import { DynamicDocsComponent } from './docs/dynamic-docs/dynamic-docs.component';
 import { NgClass } from '@angular/common';
+import { CarouselPlaygroundComponent } from './playgrounds/carousel-playground/carousel-playground.component';
 
 @Component({
   selector: 'app-component-view',
   imports: [
-    ClickOutsideDirective,
-    SidebarComponent, ComponentExplorerComponent,
-    DynamicDocsComponent, AuthPlaygroundComponent,
     NavbarComponent, ResponsiveMenuComponent,
+    SidebarComponent, ComponentExplorerComponent,
+    ClickOutsideDirective,
+    DynamicDocsComponent,
+    AuthPlaygroundComponent, CarouselPlaygroundComponent,
     NgClass
 ],
   templateUrl: './component-view.component.html',
