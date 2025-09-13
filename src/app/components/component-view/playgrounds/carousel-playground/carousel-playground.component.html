@@ -78,10 +78,10 @@
 
         <div class="main-component">
             @if (showCarousel() && selectedTemplateSignal() == 'template') {
-            <carousel [scrollBehavior]="scrollBehaviorSignal()" [maxShowedCards]="maxCardsSignal()" [cards]="cards()">
+            <carousel style="--cards-gap:22px;" [scrollBehavior]="scrollBehaviorSignal()" [maxShowedCards]="maxCardsSignal()" [cards]="cards()">
             </carousel>
             } @else if(showCarousel() && selectedTemplateSignal() == 'custom') {
-            <carousel [scrollBehavior]="scrollBehaviorSignal()" [maxShowedCards]="maxCardsSignal()" [cards]="cards()">
+            <carousel style="--cards-gap:22px;" [scrollBehavior]="scrollBehaviorSignal()" [maxShowedCards]="maxCardsSignal()" [cards]="cards()">
                 <ng-template let-cardInfo>
                     <custom-card [cardInfo]="cardInfo"></custom-card>
                 </ng-template>
