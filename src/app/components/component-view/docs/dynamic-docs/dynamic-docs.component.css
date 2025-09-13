@@ -17,6 +17,20 @@
         text-decoration: underline;
     }
 
+    &::ng-deep .markdown-container h2, &::ng-deep .markdown-container h3 {
+        margin-top: 1rem;
+    }
+
+     &::ng-deep .markdown-container h4{
+        margin-top: 0.5rem;
+    }
+
+    &::ng-deep .markdown-container h5{
+        margin-top: 0.25rem;
+        font-size: 1rem;
+    }
+
+
     --sidebar-width: 200px;
 
     --container-width: calc(100dvw - var(--sidebar-width));
