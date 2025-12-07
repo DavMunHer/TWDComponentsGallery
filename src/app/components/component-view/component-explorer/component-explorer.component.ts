@@ -13,6 +13,7 @@ import { ComponentsInfoService } from '../../../services/components-info.service
 export class ComponentExplorerComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  protected componentName = signal<string>(this.route.snapshot.params['name']);
   private componentsInfoService = inject(ComponentsInfoService);
   protected componentInfo = signal<ComponentInfo | undefined>(undefined);
 
@@ -23,10 +24,11 @@ export class ComponentExplorerComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe(() => {
       const newName = this.route.snapshot.params['name'];
+      this.componentName.set(newName)
       this.componentInfo.set(
         this.componentsInfoService.getComponentInfo(newName)
       );
+      console.log(newName);
     });
   }
-
 }
