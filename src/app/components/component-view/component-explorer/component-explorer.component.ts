@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { ComponentInfo } from '../../../interfaces/component-info';
+import { ComponentInfo } from '../../../types/component-info';
 import { ComponentsInfoService } from '../../../services/components-info.service';
 
 @Component({

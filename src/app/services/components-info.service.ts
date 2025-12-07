@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ComponentInfo } from '../interfaces/component-info';
-import { ComponentMinInfo } from '../interfaces/component-min-info';
+import { ComponentInfo } from '../types/component-info';
+import { ComponentMinInfo } from '../types/component-min-info';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
