@@ -1,6 +1,6 @@
 export interface ComponentInfo {
     name: string,
-    componentNameInUrl: string,
+    componentNameInUrl: ComponentUrlName,
     imageUrl: string,
     imageAlt: string,
     releasedDate: string,
@@ -9,3 +9,5 @@ export interface ComponentInfo {
     gitHubUrl: string,
     docsUrl: string
 }
+
+export type ComponentUrlName = 'auth' | 'carousel' | 'coming soon'
