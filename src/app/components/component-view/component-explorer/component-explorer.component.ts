@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { ComponentInfo } from '../../../types/component-info';
+import { ComponentInfo, ComponentUrlName } from '../../../types/component-info/component-info';
 import { ComponentsInfoService } from '../../../services/components-info.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { ComponentsInfoService } from '../../../services/components-info.service
 export class ComponentExplorerComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
-  protected componentName = signal<string>(this.route.snapshot.params['name']);
+  protected componentName = signal<ComponentUrlName>(this.route.snapshot.params['name']);
   private componentsInfoService = inject(ComponentsInfoService);
   protected componentInfo = computed<ComponentInfo>(() => 
     this.componentsInfoService.getComponentInfo(this.componentName())

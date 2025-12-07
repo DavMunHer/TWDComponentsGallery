@@ -2,7 +2,7 @@ import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { ComponentsInfoService } from '../../../services/components-info.service';
 import { CapitalizePipe } from '../../../pipes/capitalize.pipe';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { ComponentMinInfo } from '../../../types/component-min-info';
+import { ComponentMinInfo } from '../../../types/component-info/component-min-info';
 import { NgClass } from '@angular/common';
 
 @Component({

@@ -1,7 +1,7 @@
 
 import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { CapitalizePipe } from '../../../../pipes/capitalize.pipe';
-import { ComponentInfo } from '../../../../types/component-info';
+import { ComponentInfo } from '../../../../types/component-info/component-info';
 import { DynamicCardInfo, PartialDynamicCardInfo } from '../../../../types/dynamic-card';
 import { CardService } from '../../../../services/card.service';
 import { RouterLink } from '@angular/router';

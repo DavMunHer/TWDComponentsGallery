@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ComponentInfo } from '../types/component-info';
-import { ComponentMinInfo } from '../types/component-min-info';
+import { ComponentInfo, ComponentUrlName } from '../types/component-info/component-info';
+import { ComponentMinInfo } from '../types/component-info/component-min-info';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -66,7 +66,7 @@ export class ComponentsInfoService {
   }
 
   public getComponentMinInfo(
-    componentNameInUrl: string
+    componentNameInUrl: ComponentUrlName
   ): ComponentMinInfo | undefined {
     const componentsMinInfo = this.getComponentsMinInfo();
 
@@ -75,7 +75,7 @@ export class ComponentsInfoService {
     });
   }
 
-  public getComponentInfo(componentNameInUrl: string): ComponentInfo {
+  public getComponentInfo(componentNameInUrl: ComponentUrlName): ComponentInfo {
     const componentsInfo = this.getComponentsInfo();
 
     return componentsInfo.find((component) => {
@@ -83,7 +83,7 @@ export class ComponentsInfoService {
     })!;
   }
 
-  public getComponentDocs(componentNameInUrl: string): Observable<string> {
+  public getComponentDocs(componentNameInUrl: ComponentUrlName): Observable<string> {
     const component = this.getComponentInfo(componentNameInUrl);
     if (!component) {
       throw new Error('Component not found');
