@@ -14,7 +14,6 @@ export class ComponentExplorerComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private componentsInfoService = inject(ComponentsInfoService);
-  protected componentName = signal<string>(this.route.snapshot.params['name']);
   protected componentInfo = signal<ComponentInfo | undefined>(undefined);
 
   protected isPlaygroundActive() {
@@ -23,14 +22,11 @@ export class ComponentExplorerComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.events.subscribe(() => {
-      this.updateComponentName();
+      const newName = this.route.snapshot.params['name'];
+      this.componentInfo.set(
+        this.componentsInfoService.getComponentInfo(newName)
+      );
     });
-    this.componentInfo.set(
-      this.componentsInfoService.getComponentInfo(this.componentName())
-    );
   }
 
-  private updateComponentName() {
-    this.componentName.set(this.route.snapshot.params['name']);
-  }
 }

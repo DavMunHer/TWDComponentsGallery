@@ -1,11 +1,13 @@
 <nav class="explorer-container">
     <section class="explorer-options">
-        <a class="explorer-option" [routerLink]="['/components', componentName(), 'playground']" [ngClass]="{'active': isPlaygroundActive()}">
+        <a class="explorer-option" [routerLink]="['/components', componentInfo()?.name, 'playground']"
+            [ngClass]="{'active': isPlaygroundActive()}">
             <span>
                 PLAYGROUND
             </span>
         </a>
-        <a class="explorer-option" [routerLink]="['/components', componentName(), 'docs']" [ngClass]="{'active': !isPlaygroundActive()}">
+        <a class="explorer-option" [routerLink]="['/components', componentInfo()?.name, 'docs']"
+            [ngClass]="{'active': !isPlaygroundActive()}">
             <span>
                 DOCUMENTATION
             </span>
@@ -19,7 +21,7 @@
         </div>
         <div class="component-reference">
             <a class="reference-anchor" target="_blank" [href]="componentInfo()?.npmPackageUrl">
-                <span>NPM</span>            
+                <span>NPM</span>
             </a>
         </div>
     </section>
