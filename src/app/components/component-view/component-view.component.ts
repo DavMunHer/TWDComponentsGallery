@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit, signal, viewChild } from '@angular/core';
+import { Component, inject, OnInit, signal, viewChild } from '@angular/core';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentExplorerComponent } from './component-explorer/component-explorer.component';

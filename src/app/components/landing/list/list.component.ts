@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CardComponent } from './card/card.component';
-import { ComponentInfo } from '../../../interfaces/component-info';
+import { ComponentInfo } from '../../../types/component-info/component-info';
 import { ComponentsInfoService } from '../../../services/components-info.service';
 
 @Component({
