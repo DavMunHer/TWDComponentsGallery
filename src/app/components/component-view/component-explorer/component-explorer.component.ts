@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ComponentInfo } from '../../../interfaces/component-info';
 import { ComponentsInfoService } from '../../../services/components-info.service';
@@ -15,7 +15,9 @@ export class ComponentExplorerComponent implements OnInit {
   private router = inject(Router);
   protected componentName = signal<string>(this.route.snapshot.params['name']);
   private componentsInfoService = inject(ComponentsInfoService);
-  protected componentInfo = signal<ComponentInfo | undefined>(undefined);
+  protected componentInfo = computed<ComponentInfo>(() => 
+    this.componentsInfoService.getComponentInfo(this.componentName())
+  );
 
   protected isPlaygroundActive() {
     return this.route.snapshot.params['showedInfo'] == 'playground';
@@ -24,11 +26,7 @@ export class ComponentExplorerComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe(() => {
       const newName = this.route.snapshot.params['name'];
-      this.componentName.set(newName)
-      this.componentInfo.set(
-        this.componentsInfoService.getComponentInfo(newName)
-      );
-      console.log(newName);
+      this.componentName.set(newName);
     });
   }
 }
